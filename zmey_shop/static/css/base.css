@@ -1,0 +1,131 @@
+body {
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
+.header {
+    background-color: #FFEBCD;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    max-width: 1536px;
+    max-height: 500px;
+    min-width: 1520px;
+    min-height: 125px;
+    margin: 0 auto;
+}
+
+.search-form {
+    min-width: 300px;
+}
+
+.search-button {
+    min-width: 50px;
+    box-sizing: content-box;
+    position: absolute;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    margin-right: 10px;
+}
+
+.menu li {
+    margin-left: 90px;
+}
+
+.menu li a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.menu li a:hover {
+    color: #FF0000;
+}
+
+.side_logo-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 150px;
+    height: 124px;
+}
+
+div.categories {
+    text-align: left;
+    margin-top: 80px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #FFEBCD;
+    background-size: cover;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    overflow-x: scroll;
+    overflow-y: scroll;
+
+}
+
+.sidenav::-webkit-scrollbar {
+    display: none;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #FF0000;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+div.goods {
+    margin: 0 auto;
+    margin-top: 80px;
+    max-width: 1536px;
+    max-height: 500px;
+    min-width: 1520px;
+    min-height: 125px;
+    text-align: center;
+    align-content: center;
+    display: block;
+}
+
+.footer {
+    background-color: #FFEBCD;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+#main span:hover {
+    color: #FF0000;
+}

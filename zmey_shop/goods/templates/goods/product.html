@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+    {% for criteria in product %}
+        <div class="product_view">
+            <img class="product_img" src="{{ criteria.photo.url }}" alt="картинка">
+            <p class="text"> Описание: Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                Iusto quae quas at quasi quisquam id expedita repellendus nobis sint officia error, 
+                voluptas aut ipsum ex! Voluptatum aperiam ut repellendus. Impedit.
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="name"><span>Название:</span></td>
+                        <td class="cur"> {{ criteria.name }}</td>
+                      </tr>
+                    <tr>
+                        <td class="name"><span>Цвет товара:</span></td>
+                        <td class="cur">{{ criteria.color }} </td>
+                    </tr>
+                    <tr>
+                        <td class="name"><span>Материал:</span></td>
+                        <td class="cur">Хороший</td>
+                    </tr>  
+                </tbody>
+              </table>
+        </div>
+        
+    {% endfor %}
+{% endblock %}

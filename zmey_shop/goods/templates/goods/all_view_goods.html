@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+{% for product in goods %}
+        <div class="product-card_border">
+            <a href="{{ product.get_absolute_url }}" class="url"> 
+                <div class="product-card">
+                    <img src="{{ product.photo.url }}" alt="Название товара" class="product-card__image">
+                    <h3 class="product-card__title">{{ product.name }}</h3>
+                    <p class="product-card__description">{{ product.color }}</p>
+                    <span class="product-card__price">{{ product.price }} руб.</span>
+                </div>
+            </a>
+        </div>   
+{% endfor %}
+{% endblock %}
