@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if favourites %}
+        {% for favourite_product in favourites %}
+            <div class="product-card_border">
+                <div >
+                    <form action="{% url 'favourite:add' favourite_product.goods.id %}" method="post" class="manage_favourite">
+                        {% csrf_token %}
+                        <button class="heart_favourite" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  viewBox="0 0 16 16">
+                                <path  class="white" fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+                <a href="{{ product.get_absolute_url }}" class="url">
+                    <div class="product-card">
+                        <img src="{{ favourite_product.goods.photo.url }}" alt="Название товара" class="product-card__image">
+                        <h3 class="product-card__title">{{ favourite_product.goods.name }}</h3>
+                        <p class="product-card__description">{{ favourite_product.goods.color }}</p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div> У Вас в избранное ничего не добавлено </div>
+    {% endif %}
+{% endblock %}

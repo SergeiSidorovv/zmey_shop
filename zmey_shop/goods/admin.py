@@ -3,6 +3,7 @@ from django.utils.safestring import mark_safe
 
 from goods.models import Goods
 
+
 class GoodsAdmin(admin.ModelAdmin):
     list_display = [
         "id",

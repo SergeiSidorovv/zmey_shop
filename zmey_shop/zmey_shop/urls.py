@@ -22,8 +22,9 @@ from zmey_shop import settings
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
     path("", include("goods.urls")),
+    path("favourite/", include("goods_favourite.urls", namespace="favourite")),
     path("__debug__/", include("debug_toolbar.urls")),
 ]
 

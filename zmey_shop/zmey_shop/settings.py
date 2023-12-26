@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'goods.apps.GoodsConfig',
+    'goods_favourite.apps.GoodsFavouriteConfig',
     'debug_toolbar',
 ]
 
