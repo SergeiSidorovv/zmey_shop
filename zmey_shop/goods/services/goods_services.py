@@ -26,3 +26,14 @@ def get_all_name() -> BaseManager[Goods]:
 
     categories = Goods.objects.get()
     return categories
+
+
+def get_search_goods(name_product: BaseManager[Goods]) -> BaseManager[Goods]:
+    """Get all data about goods by search name product from Goods database
+
+    Keyword arguments:
+    name_product -- criteria for searching products with a similar name in Goods database
+    """
+
+    search_goods = Goods.objects.filter(name__icontains=name_product)
+    return search_goods
