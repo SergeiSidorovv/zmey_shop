@@ -1,4 +1,5 @@
 from typing import Any
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 from django.views import View
 from django.shortcuts import redirect
@@ -7,7 +8,7 @@ from goods_favourite.models import Favourite
 from goods_favourite.services import favourite_services
 
 
-class FavouriteGoods(ListView):
+class FavouriteGoods(LoginRequiredMixin, ListView):
     model = Favourite
     template_name = "goods_favourite/favourite_goods_view.html"
     context_object_name = "favourites"

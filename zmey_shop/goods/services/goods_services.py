@@ -22,7 +22,7 @@ def get_product(self) -> BaseManager[Goods]:
 
 
 def get_all_name() -> BaseManager[Goods]:
-    """gives away all categories"""
+    """Gives away all categories"""
 
     categories = Goods.objects.get()
     return categories
