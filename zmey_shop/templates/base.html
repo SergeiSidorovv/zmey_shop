@@ -43,7 +43,7 @@
             <ul class="menu">
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'favourite:favourite_goods' %}"> Избранное </a></li>
-                    <li>{{ user }} | <a href="{% url 'users:logout' %}">Выйти</a></li>
+                    <li><a href="{% url 'users:change'%}">{{ user }}</a> | <a href="{% url 'users:logout' %}">Выйти</a></li>
                 {% else %}
                     <li><a href="{% url 'users:login' %}">войти </a> | <a href="{% url 'users:registration' %}">Регистрация </a></li>
                 {% endif %}
