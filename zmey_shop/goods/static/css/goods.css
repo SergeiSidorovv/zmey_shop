@@ -106,3 +106,29 @@ a.url {
   .active_favourite_heart .white {
     fill: white;
   }
+
+.center {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+.pagination .color {
+  background-color: #FFEBCD;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}

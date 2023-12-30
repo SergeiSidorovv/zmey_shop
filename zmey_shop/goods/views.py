@@ -1,6 +1,7 @@
 from typing import Any
 from django.views.generic import ListView
 from django.db.models.manager import BaseManager
+from django.core.paginator import Paginator
 
 from goods.models import Goods
 from goods.services import goods_services
@@ -11,14 +12,17 @@ class AllGoods(ListView):
     model = Goods
     template_name = "goods/all_view_goods.html"
     context_object_name = "goods"
+    paginate_by = 3
 
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        context["goods"] = goods_services.get_goods_data()
         context["favourite_goods"] = favourite_services.get_favourite_goods_id(
-            user_id=self.request.user.id
+            self.request.user.id
         )
         return context
+
+    def get_queryset(self):
+        return goods_services.get_goods_data()
 
 
 class Product(ListView):
@@ -33,6 +37,7 @@ class Product(ListView):
 
 
 class SearchGoods(ListView):
+    paginate_by = 3
     model = Goods
     template_name = "goods/search_goods.html"
     context_object_name = "search_goods"
@@ -47,6 +52,6 @@ class SearchGoods(ListView):
         context = super().get_context_data(**kwargs)
         context["search_form"] = self.request.GET.get("search_form")
         context["favourite_goods"] = favourite_services.get_favourite_goods_id(
-            user_id=self.request.user.id
+            self.request.user.id
         )
         return context
