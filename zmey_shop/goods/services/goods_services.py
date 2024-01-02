@@ -1,4 +1,5 @@
 from django.db.models.manager import BaseManager
+from django.db.models import Count
 
 from goods.models import Goods
 
@@ -11,7 +12,7 @@ def get_goods_data() -> BaseManager[Goods]:
 
 
 def get_product(self) -> BaseManager[Goods]:
-    """gives away the product
+    """Gives away the product
 
     Keyword arguments:
     self -- a reference to the current instance of the class
@@ -21,11 +22,22 @@ def get_product(self) -> BaseManager[Goods]:
     return product
 
 
-def get_all_name() -> BaseManager[Goods]:
-    """Gives away all categories"""
+def get_all_goods_for_name(name) -> BaseManager[Goods]:
+    """Gives all products from the database that have the same names as the name parameter
 
-    categories = Goods.objects.get()
-    return categories
+    Keyword arguments:
+    name -- a parameter that transmits the product name
+    """
+
+    choice_goods = Goods.objects.filter(name=name)
+    return choice_goods
+
+
+def get_all_names_goods() -> BaseManager[Goods]:
+    """Gives away all types goods"""
+
+    names_goods = Goods.objects.order_by('name').distinct('name')
+    return names_goods
 
 
 def get_search_goods(name_product: BaseManager[Goods]) -> BaseManager[Goods]:

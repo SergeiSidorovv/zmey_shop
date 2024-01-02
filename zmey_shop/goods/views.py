@@ -15,10 +15,20 @@ class AllGoods(BaseDataMixin, ListView):
         return goods_services.get_goods_data()
 
 
+class ChoiceGoods(BaseDataMixin,ListView):
+    template_name = "goods/choice_type_goods.html"
+    context_object_name = "choice_type"
+
+    def get_queryset(self) -> BaseManager[Goods]:
+        choice_goods = goods_services.get_all_goods_for_name(self.kwargs["type_product"])
+        return choice_goods
+
+
 class Product(ListView):
     model = Goods
     template_name = "goods/product.html"
     context_object_name = "product"
+
 
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)

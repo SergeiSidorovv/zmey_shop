@@ -1,0 +1,3 @@
+{% for type_product in types_goods %}
+    <a href="{% url 'choice_goods' type_product %}"> {{ type_product}} </a>
+{% endfor %}

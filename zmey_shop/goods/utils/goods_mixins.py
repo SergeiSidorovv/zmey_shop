@@ -6,7 +6,7 @@ from goods_favourite.services import favourite_services
 
 class BaseDataMixin:
     model = Goods
-    paginate_by = 3
+    paginate_by = 15
 
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
