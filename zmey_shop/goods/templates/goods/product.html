@@ -1,8 +1,19 @@
 {% extends "base.html" %}
-{% block content %}
+{% block content %} 
+         
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <div class="href_picture">
+            {% for picture in pictures %}
+                <li><button onclick="showImage()"><img id="myImage" class="product_imges" src="{{ picture.photo.url }}" alt="картинка"></button></li>
+            {% endfor %} 
+        </div>  
+    </ul>
+</nav> 
+
+<div class="info">
     {% for criteria in product %}
         <div class="product_view">
-            <img class="product_img" src="{{ criteria.photo.url }}" alt="картинка">
             <p class="text"> Описание: Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
                 Iusto quae quas at quasi quisquam id expedita repellendus nobis sint officia error, 
                 voluptas aut ipsum ex! Voluptatum aperiam ut repellendus. Impedit.
@@ -23,7 +34,6 @@
                     </tr>  
                 </tbody>
               </table>
-        </div>
-        
+        </div>   
     {% endfor %}
 {% endblock %}

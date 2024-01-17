@@ -8,7 +8,7 @@ from goods_favourite.services import favourite_services
 
 
 class FavouriteGoods(LoginRequiredMixin, ListView):
-    paginate_by = 3
+    paginate_by = 15
     model = Favourite
     template_name = "goods_favourite/favourite_goods_view.html"
     context_object_name = "favourites"

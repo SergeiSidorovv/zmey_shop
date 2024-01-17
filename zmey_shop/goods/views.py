@@ -3,11 +3,14 @@ from django.views.generic import ListView
 from django.db.models.manager import BaseManager
 
 from goods.models import Goods
-from goods.utils.goods_mixins import BaseDataMixin
+from goods.mixins.goods_mixins import BaseDataMixin
 from goods.services import goods_services
+from goods_favourite.mixins.favourite_mixins import GetFavouriteGoodsMixin
+from pictures.services import picture_services
 
 
-class AllGoods(BaseDataMixin, ListView):
+
+class AllGoods(BaseDataMixin, GetFavouriteGoodsMixin, ListView):
     template_name = "goods/all_view_goods.html"
     context_object_name = "goods"
 
@@ -15,7 +18,7 @@ class AllGoods(BaseDataMixin, ListView):
         return goods_services.get_goods_data()
 
 
-class ChoiceGoods(BaseDataMixin,ListView):
+class ChoiceGoods(BaseDataMixin, GetFavouriteGoodsMixin, ListView):
     template_name = "goods/choice_type_goods.html"
     context_object_name = "choice_type"
 
@@ -32,11 +35,12 @@ class Product(ListView):
 
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        context["product"] = goods_services.get_product(self)
+        context["product"] = goods_services.get_product(self.kwargs["product_slug"])
+        context["pictures"] = picture_services.get_pictures_from_goods_id(context["product"].get().id)
         return context
 
 
-class SearchGoods(BaseDataMixin, ListView):
+class SearchGoods(BaseDataMixin, GetFavouriteGoodsMixin, ListView):
     template_name = "goods/search_goods.html"
     context_object_name = "search_goods"
 

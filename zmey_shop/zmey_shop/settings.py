@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'goods.apps.GoodsConfig',
     'goods_favourite.apps.GoodsFavouriteConfig',
     'users.apps.UsersConfig',
+    'pictures.apps.PicturesConfig',
     'debug_toolbar',
 ]
 
