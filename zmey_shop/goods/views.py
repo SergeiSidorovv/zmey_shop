@@ -9,7 +9,6 @@ from goods_favourite.mixins.favourite_mixins import GetFavouriteGoodsMixin
 from pictures.services import picture_services
 
 
-
 class AllGoods(BaseDataMixin, GetFavouriteGoodsMixin, ListView):
     template_name = "goods/all_view_goods.html"
     context_object_name = "goods"
@@ -23,7 +22,9 @@ class ChoiceGoods(BaseDataMixin, GetFavouriteGoodsMixin, ListView):
     context_object_name = "choice_type"
 
     def get_queryset(self) -> BaseManager[Goods]:
-        choice_goods = goods_services.get_all_goods_for_name(self.kwargs["type_product"])
+        choice_goods = goods_services.get_all_goods_for_name(
+            self.kwargs["type_product"]
+        )
         return choice_goods
 
 
@@ -32,11 +33,13 @@ class Product(ListView):
     template_name = "goods/product.html"
     context_object_name = "product"
 
-
     def get_context_data(self, **kwargs) -> dict[str, Any]:
+        self.object_list = self.get_queryset()
         context = super().get_context_data(**kwargs)
         context["product"] = goods_services.get_product(self.kwargs["product_slug"])
-        context["pictures"] = picture_services.get_pictures_from_goods_id(context["product"].get().id)
+        context["pictures"] = picture_services.get_pictures_from_goods_id(
+            context["product"].get().id
+        )
         return context
 
 
@@ -51,6 +54,7 @@ class SearchGoods(BaseDataMixin, GetFavouriteGoodsMixin, ListView):
         return search_goods
 
     def get_context_data(self, **kwargs) -> dict[str, Any]:
+        self.object_list = self.get_queryset()
         context = super().get_context_data(**kwargs)
         context["search_form"] = self.request.GET.get("search_form")
         return context
