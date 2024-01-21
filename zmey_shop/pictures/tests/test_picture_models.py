@@ -19,7 +19,6 @@ class PicturesModelsTest(TestCase):
     def test_pictures_photo_label(self):
         """The photo label is written correctly"""
 
-        product = Goods.objects.get(slug="kardigan")
         picture_for_product = Pictures.objects.get(photo="IMG_R_0067.jpg")
         field_label = picture_for_product._meta.get_field("photo").verbose_name
 

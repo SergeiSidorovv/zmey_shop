@@ -2,6 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 from django.views import View
 from django.shortcuts import redirect
+from django.contrib.auth.models import AnonymousUser
 
 from goods_favourite.models import Favourite
 from goods_favourite.services import favourite_services
@@ -14,11 +15,15 @@ class FavouriteGoods(LoginRequiredMixin, ListView):
     context_object_name = "favourites"
 
     def get_queryset(self):
-        return favourite_services.get_favourite_goods(self.request.user.id)
+        favourite_goods = favourite_services.get_favourite_goods(self.request.user.id)
+        return favourite_goods
 
 
 class ManageFavouriteGoods(View):
-    def post(self, request, id_product):
+    def post(self, request, id_product: int):
+        if request.user == AnonymousUser():
+            return redirect(request.META.get("HTTP_REFERER"))
+
         product = favourite_services.get_favourite_product(request.user.id, id_product)
         if not product:
             favourite_services.create_product_in_favourite(request.user.id, id_product)

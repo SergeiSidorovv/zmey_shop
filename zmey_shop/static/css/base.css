@@ -3,7 +3,7 @@ body {
     overflow-y: scroll;
 }
 
-.header {
+/* .header {
     background-color: #FFEBCD;
     display: flex;
     text-align: center;
@@ -53,8 +53,11 @@ body {
     height: 150px;
     height: 124px;
 }
+.offcanvas{
+    background-color:  #FFEBCD;
+}
 
-div.types_goods {
+.offcanvas .offcanvas-body .types_goods {
     text-align: left;
     margin-top: 80px;
 }
@@ -128,4 +131,4 @@ div.goods {
 
 #main span:hover {
     color: #FF0000;
-}
+} */
