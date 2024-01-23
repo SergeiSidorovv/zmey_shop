@@ -22,7 +22,9 @@ def get_favourite_product(user_id: int, id_product: int) -> BaseManager[Favourit
     id_product -- the ID of the product
     """
 
-    favourite_product = Favourite.objects.filter(user_id=user_id, goods_id=id_product)
+    favourite_product = Favourite.objects.filter(
+        user_id=user_id, goods_id=id_product
+    ).select_related("goods")
     return favourite_product
 
 
@@ -52,5 +54,5 @@ def get_favourite_goods_id(user_id: int) -> BaseManager[Favourite]:
 
 def delete_favourite_product(favourite_product: BaseManager[Favourite]):
     """Favourite product delete from Favourite database"""
-
+    
     favourite_product.delete()

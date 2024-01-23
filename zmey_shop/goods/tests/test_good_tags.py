@@ -1,6 +1,5 @@
 from django.test import TestCase
 from django.template import Template, Context
-from django import template
 
 from goods.templatetags import goods_tags
 from goods.services import goods_services
@@ -24,7 +23,7 @@ class GoodsTagsTest(TestCase):
         template_types_goods = '<a href="/choice_goods/%D0%A1%D1%83%D0%BC%D0%BA%D0%B0/"> Сумка </a>\
                     <a href="/choice_goods/%D0%A8%D0%B0%D0%BF%D0%BA%D0%B0/"> Шапка </a>'
 
-        self.assertInHTML(template_types_goods,rendered)
+        self.assertInHTML(template_types_goods, rendered)
 
     def test_get_data_get_types_goods(self):
         types_goods = goods_tags.get_types_goods()
