@@ -47,7 +47,9 @@ class SearchGoods(BaseDataMixin, GetFavouriteGoodsMixin, ListView):
     template_name = "goods/search_goods.html"
     context_object_name = "search_goods"
 
+    
     def get_queryset(self) -> BaseManager[Goods]:
+        print(self.request.GET)
         search_goods = goods_services.get_search_goods(
             self.request.GET.get("search_form")
         )
