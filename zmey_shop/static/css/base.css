@@ -1,89 +1,112 @@
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
 body {
     overflow-x: scroll;
     overflow-y: scroll;
+    display: block;
 }
 
-/* .header {
-    background-color: #FFEBCD;
-    display: flex;
-    text-align: center;
+header {
     align-items: center;
+    text-align: center;
+    background-color: #FFEBCD;
     justify-content: space-between;
-    box-sizing: border-box;
-    max-width: 1536px;
-    max-height: 500px;
-    min-width: 1520px;
-    min-height: 125px;
     margin: 0 auto;
+    max-width: 1536px;
+    max-height: 250px;
+    min-width: 300px;
+    min-height: 60px;
+}
+
+div.content-list {
+    display: flex;
+}
+
+div.container {
+    display: block;
+    margin-top: 80px;
+}
+
+.header-container .navbar {
+    background-color: #FFEBCD;
+    align-items: center;
+    text-align: center;
 }
 
 .search-form {
     min-width: 300px;
+    border-radius: 5px;
+    border-color: #FFEBCD;
 }
 
 .search-button {
-    min-width: 50px;
-    box-sizing: content-box;
-    position: absolute;
+    border-radius: 5px;
+    background-color: #FFEBCD;
 }
 
-.menu {
-    display: flex;
-    list-style: none;
-    margin-right: 10px;
-}
-
-.menu li {
-    margin-left: 90px;
-}
-
-.menu li a {
-    color: #000000;
-    text-decoration: none;
-}
-
-.menu li a:hover {
+.navbar-nav .nav-link:hover {
     color: #FF0000;
 }
 
-.side_logo-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 150px;
-    height: 124px;
-}
-.offcanvas{
-    background-color:  #FFEBCD;
+.navbar .sidebar-left .btn:hover {
+    color: red;
 }
 
-.offcanvas .offcanvas-body .types_goods {
+.navbar .navbar-nav .btn:hover {
+    color: #FF0000;
+}
+
+.navbar .navbar-nav .dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #FFEBCD;
+}
+
+
+.favourite-products {
+    text-decoration: none;
+    color: black;
+    list-style-type: none;
+}
+
+div .offcanvas {
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
+div .offcanvas-header {
+    background-color: #FFEBCD;
+    border-bottom: 1px solid black;
+    border-radius: 1px;
+}
+
+.offcanvas-header a {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: flex;
+    transition: 0.3s;
+}
+
+div .offcanvas-body {
+    background-color: #FFEBCD;
+}
+
+.offcanvas-footer {
+    background-color: #FFEBCD;
+}
+
+.offcanvas-body .types_goods {
     text-align: left;
     margin-top: 80px;
 }
 
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #FFEBCD;
-    background-size: cover;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    overflow-x: scroll;
-    overflow-y: scroll;
-
-}
-
-.sidenav::-webkit-scrollbar {
-    display: none;
-}
-
-.sidenav a {
+.types_goods a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
@@ -92,43 +115,54 @@ body {
     transition: 0.3s;
 }
 
-.sidenav a:hover {
-    color: #FF0000;
+.offcanvas .offcanvas-footer .fa-brands {
+    width: 80px;
+    height: 80px;
+    font-size: 40px;
 }
 
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-div.goods {
-    margin: 0 auto;
-    margin-top: 80px;
-    max-width: 1536px;
-    max-height: 500px;
-    min-width: 1520px;
-    min-height: 125px;
-    text-align: center;
-    align-content: center;
+.pagination-container {
     display: block;
 }
 
-.footer {
-    background-color: #FFEBCD;
-    left: 0;
-    bottom: 0;
+.pagination-container .pagination {
+    position: absolute;
+    margin-top: 20px;
     width: 100%;
-    height: 40px;
+    right: 50%;
+    left: 50%;
 }
 
-#main {
-    transition: margin-left .5s;
-    padding: 16px;
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
 }
 
-#main span:hover {
+.pagination .color {
+    background-color: #FFEBCD;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.types_goods a:hover {
     color: #FF0000;
-} */
+}
+
+.favourite-products:hover {
+    color: red;
+}
+
+.offcanvas-header a:hover {
+    color: #FF0000;
+}
+
+.offcanvas-footer a:hover {
+    color: #FF0000;
+}
