@@ -5,7 +5,6 @@ html {
 body {
     overflow-x: scroll;
     overflow-y: scroll;
-    display: block;
 }
 
 header {
@@ -20,16 +19,19 @@ header {
     min-height: 60px;
 }
 
-div.content-list {
-    display: flex;
-}
-
-div.container {
-    display: block;
+div.goods {
+    margin: 0 auto;
     margin-top: 80px;
+    max-width: 1536px;
+    max-height: 500px;
+    min-width: 1520px;
+    min-height: 125px;
+    text-align: center;
+    align-content: center;
+    display: block;
 }
 
-.header-container .navbar {
+.header-body .navbar {
     background-color: #FFEBCD;
     align-items: center;
     text-align: center;
@@ -62,22 +64,8 @@ div.container {
     right: 0;
     left: auto;
 }
-.offcanvas{
-    background-color:  #FFEBCD;
-}
 
-div.types_goods {
-    text-align: left;
-    margin-top: 80px;
-}
-
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
+.dropdown-menu .dropdown-item:hover {
     background-color: #FFEBCD;
 }
 
@@ -87,6 +75,8 @@ div.types_goods {
     color: black;
     list-style-type: none;
 }
+
+
 
 div .offcanvas {
     overflow-x: scroll;
@@ -135,36 +125,6 @@ div .offcanvas-body {
     font-size: 40px;
 }
 
-.pagination-container {
-    display: block;
-}
-
-.pagination-container .pagination {
-    position: absolute;
-    margin-top: 20px;
-    width: 100%;
-    right: 50%;
-    left: 50%;
-}
-
-.pagination a {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-    transition: background-color .3s;
-    border: 1px solid #ddd;
-    margin: 0 4px;
-}
-
-.pagination .color {
-    background-color: #FFEBCD;
-}
-
-.pagination a:hover:not(.active) {
-    background-color: #ddd;
-}
-
 .types_goods a:hover {
     color: #FF0000;
 }
@@ -179,4 +139,4 @@ div .offcanvas-body {
 
 .offcanvas-footer a:hover {
     color: #FF0000;
-} 
+}
