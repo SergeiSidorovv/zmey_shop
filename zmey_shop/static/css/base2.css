@@ -1,0 +1,142 @@
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
+header {
+    align-items: center;
+    text-align: center;
+    background-color: #FFEBCD;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1536px;
+    max-height: 250px;
+    min-width: 300px;
+    min-height: 60px;
+}
+
+div.goods {
+    margin: 0 auto;
+    margin-top: 80px;
+    max-width: 1536px;
+    max-height: 500px;
+    min-width: 1520px;
+    min-height: 125px;
+    text-align: center;
+    align-content: center;
+    display: block;
+}
+
+.header-body .navbar {
+    background-color: #FFEBCD;
+    align-items: center;
+    text-align: center;
+}
+
+.search-form {
+    min-width: 300px;
+    border-radius: 5px;
+    border-color: #FFEBCD;
+}
+
+.search-button {
+    border-radius: 5px;
+    background-color: #FFEBCD;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #FF0000;
+}
+
+.navbar .sidebar-left .btn:hover {
+    color: red;
+}
+
+.navbar .navbar-nav .btn:hover {
+    color: #FF0000;
+}
+
+.navbar .navbar-nav .dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #FFEBCD;
+}
+
+
+.favourite-products {
+    text-decoration: none;
+    color: black;
+    list-style-type: none;
+}
+
+
+
+div .offcanvas {
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
+div .offcanvas-header {
+    background-color: #FFEBCD;
+    border-bottom: 1px solid black;
+    border-radius: 1px;
+}
+
+.offcanvas-header a {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: flex;
+    transition: 0.3s;
+}
+
+div .offcanvas-body {
+    background-color: #FFEBCD;
+}
+
+.offcanvas-footer {
+    background-color: #FFEBCD;
+}
+
+.offcanvas-body .types_goods {
+    text-align: left;
+    margin-top: 80px;
+}
+
+.types_goods a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+.offcanvas .offcanvas-footer .fa-brands {
+    width: 80px;
+    height: 80px;
+    font-size: 40px;
+}
+
+.types_goods a:hover {
+    color: #FF0000;
+}
+
+.favourite-products:hover {
+    color: red;
+}
+
+.offcanvas-header a:hover {
+    color: #FF0000;
+}
+
+.offcanvas-footer a:hover {
+    color: #FF0000;
+}
