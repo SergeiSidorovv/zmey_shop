@@ -20,7 +20,7 @@ header {
     min-height: 60px;
 }
 
-header .navbar {
+.header-body .navbar {
     background-color: #FFEBCD;
     align-items: center;
     text-align: center;
@@ -62,8 +62,9 @@ div.container {
     right: 0;
     left: auto;
 }
-.offcanvas{
-    background-color:  #FFEBCD;
+
+.offcanvas {
+    background-color: #FFEBCD;
 }
 
 div.types_goods {
@@ -179,4 +180,4 @@ div .offcanvas-body {
 
 .offcanvas-footer a:hover {
     color: #FF0000;
-} 
+}
