@@ -167,6 +167,18 @@ div .offcanvas-body {
     background-color: #FFEBCD;
 }
 
+.instagram-brand{
+    color: #ED3CCA;
+}
+
+.telegram-brand{
+    color: blue;
+}
+
+.telegram-whatsapp{
+    color:  #34C924;
+}
+
 .pagination a:hover:not(.active) {
     background-color: #ddd;
 }
