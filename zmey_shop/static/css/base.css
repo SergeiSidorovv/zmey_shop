@@ -63,6 +63,11 @@ div.container {
     left: auto;
 }
 
+.dropdown-menu  li{
+    right: 0;
+    left: auto;
+}
+
 .offcanvas {
     background-color: #FFEBCD;
 }

@@ -1,9 +1,23 @@
-{% extends "base.html" %}
-{% block content %}
-    <form method="post">
+{% extends "users/base_password.html" %}
+{% block title_passsword %}
+    <title>
+        Регистрация
+    </title>
+{% endblock title_passsword %}
+
+{% block password_action %}
+    <form class="form" action="" method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Зарегистрироваться">
-        <input type="hidden" name="next" value="{{ next }}">
+        <div class="container-form">
+            <input type="hidden" name="next" value="{{ next }}">
+            {% for f in form %}
+                <p>
+                    <label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}:</label>
+                    {{ f }}
+                </p>
+                <div class="form-error">{{ f.errors }}</div>
+            {% endfor %}
+            <button class="btn" type="submit">Регистрация</button>
+        </div>   
     </form>
-{% endblock %}
+{% endblock  %}

@@ -10,6 +10,7 @@
     <link type="text/css" href="{% static 'css/goods.css' %}" rel="stylesheet" />
     <link type="text/css" href="{% static 'css/product.css' %}" rel="stylesheet" />
     <link type="text/css" href="{% static 'css/base.css' %}" rel="stylesheet" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
@@ -44,9 +45,7 @@
                 
                     {% if user.is_authenticated %}
                         <ul class="navbar-nav me-auto mb-2 ">
-                            <li>{{ user }} | <a class="favourite-products" href="{% url 'favourite:favourite_goods' %}"> Избранное <i class="fa-solid fa-heart" color=></i> </a>
-                                            
-                            </li>
+                            <li>{{ user }} | <a class="favourite-products" href="{% url 'favourite:favourite_goods' %}"> Избранное <i class="fa-solid fa-heart" color=></i> </a></li>
                         </ul> 
                         <ul class="navbar-nav ms-auto mb-2 ">
                             <li class="nav-item dropdown">
@@ -54,14 +53,26 @@
                                     <i class="fa-solid fa-user"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{% url 'users:change'%}">Редактировать</a></li>
+                                    <li><a class="dropdown-item"  href="{% url 'users:change'%}">Редактировать</a></li>
                                     <li><a class="dropdown-item" href="{% url 'users:logout' %}">Выйти</a></li>
                                 </ul>
                             </li>
                         </ul>
 
                     {% else %}
-                        <li><a href="{% url 'users:login' %}">войти </a> | <a href="{% url 'users:registration' %}">Регистрация </a></li>
+                        <ul class="navbar-nav ms-auto mb-2 ">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-regular fa-user"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{% url 'users:login' %}">войти</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'users:registration'%}">Регистрация</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        {% comment %} <li><a href="{% url 'users:login' %}">войти </a> | <a href="{% url 'users:registration' %}">Регистрация </a></li> {% endcomment %}
                     {% endif %}
                 </ul>
                 </div>

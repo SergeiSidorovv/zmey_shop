@@ -1,0 +1,99 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #000;
+  background-color: #f8f8f8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container-form {
+  text-align: left;
+}
+
+
+.form {
+  width: 350px;
+  padding: 15px;
+  margin: 20px auto;
+  background-color: #fff;
+}
+
+.form .container-form input {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+
+  border: 1px solid #ccc;
+
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.container-form .form-label label {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+
+  border: 1px solid #ccc;
+
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.container-form .reset-complete {
+  text-align: center;
+  margin: 20px auto;
+  display: block;
+  width: 350px;
+  align-items: center;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  background-color: #f8f8f8;
+  color: #000;
+
+  border: 1px solid #ccc;
+
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.container-form .reset-complete .information-form{
+  color: #14a20a;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.form .information-form {
+  color: #14a20a;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.container-form .form-error li {
+  list-style-type: none;
+  padding: 0;
+  color: #CC0000;
+}
+
+.container-form .btn {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+
+  border: 0;
+  background-color: #1cbc11;
+  cursor: pointer;
+
+  font-family: inherit;
+  font-size: 16px;
+  color: #fff;
+}
+
+.container-form .btn:hover {
+  background-color: #14a20a;
+}
