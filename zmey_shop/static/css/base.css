@@ -63,7 +63,7 @@ div.container {
     left: auto;
 }
 
-.dropdown-menu  li{
+.dropdown-menu li {
     right: 0;
     left: auto;
 }
@@ -184,5 +184,60 @@ div .offcanvas-body {
 }
 
 .offcanvas-footer a:hover {
+    color: #FF0000;
+}
+
+footer {
+    background-color: #FFEBCD;
+    margin: 300px auto;
+    align-items: center;
+    text-align: center;
+    background-color: #FFEBCD;
+    justify-content: space-between;
+    max-width: 1536px;
+    max-height: 250px;
+    min-width: 300px;
+    min-height: 60px;
+}
+
+.container-footer .list-unstyled li{
+    margin: 10px;
+}
+
+.container-footer .list-unstyled .footer-text {
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+}
+
+.emblem .footer-emblem-instagram {
+    font-size: 30px;
+    color: #ED3CCA;
+}
+
+.emblem .footer-emblem-telegram {
+    font-size: 30px;
+    color: blue;
+}
+
+.emblem .footer-emblem-whatsApp {
+    color: #34C924;
+    font-size: 30px;
+}
+
+.emblem .footer-emblem-instagram:hover {
+    color: #FF0000;
+}
+
+
+.emblem .footer-emblem-telegram:hover {
+    color: #FF0000;
+}
+
+.emblem .footer-emblem-whatsApp:hover {
+    color: #FF0000;
+}
+
+.list-unstyled .footer-text:hover {
     color: #FF0000;
 }
