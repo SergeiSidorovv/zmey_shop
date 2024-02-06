@@ -29,6 +29,7 @@ class AdminGoodsTest(TestCase):
                 "additional_materials",
                 "color",
                 "main_photo",
+                "category",
             ],
         )
 
@@ -51,6 +52,7 @@ class AdminGoodsTest(TestCase):
                 "color",
                 "main_photo",
                 "get_html_main_photo",
+                "category",
             ],
         )
 
@@ -72,6 +74,7 @@ class AdminGoodsTest(TestCase):
                 "additional_materials",
                 "color",
                 "main_photo",
+                "category",
             ],
         )
 

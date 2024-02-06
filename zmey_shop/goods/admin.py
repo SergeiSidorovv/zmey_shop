@@ -17,6 +17,7 @@ class GoodsAdmin(admin.ModelAdmin):
         "color",
         "main_photo",
         "get_html_main_photo",
+        "category"
     ]
     list_display_links = [
         "id",
@@ -29,6 +30,7 @@ class GoodsAdmin(admin.ModelAdmin):
         "additional_materials",
         "color",
         "main_photo",
+        "category",
     ]
     fields = [
         "name",
@@ -40,6 +42,7 @@ class GoodsAdmin(admin.ModelAdmin):
         "additional_materials",
         "color",
         "main_photo",
+        "category",
     ]
     search_fields = ["name", "slug", "article"]
     readonly_fields = ["get_html_main_photo"]
