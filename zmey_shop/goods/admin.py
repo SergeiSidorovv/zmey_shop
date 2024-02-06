@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe, SafeText
 
-from goods.models import Goods
+from goods.models import Goods, CategoryGoods
 
 
 class GoodsAdmin(admin.ModelAdmin):
@@ -51,4 +51,13 @@ class GoodsAdmin(admin.ModelAdmin):
         return "Без фото"
 
 
+class CategoryGoodsAdmin(admin.ModelAdmin):
+    list_display = ["id", "name", "slug"]
+    list_display_links = ["name", "slug"]
+    fields = ["name", "slug"]
+    search_fields = ["name", "slug"]
+    prepopulated_fields = {"slug": ("name",)}
+
+
 admin.site.register(Goods, GoodsAdmin)
+admin.site.register(CategoryGoods, CategoryGoodsAdmin)
