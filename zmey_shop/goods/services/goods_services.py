@@ -1,6 +1,6 @@
 from django.db.models.manager import BaseManager
 
-from goods.models import Goods
+from goods.models import Goods, CategoryGoods
 
 
 def get_goods_data() -> BaseManager[Goods]:
@@ -21,21 +21,22 @@ def get_product(slug:str) -> BaseManager[Goods]:
     return product
 
 
-def get_all_goods_for_name(name:str) -> BaseManager[Goods]:
+def get_all_goods_for_category(category:str) -> BaseManager[Goods]:
     """Gives all products from the database that have the same names as the name parameter
 
     Keyword arguments:
     name -- a parameter that transmits the product name
     """
-
-    choice_goods = Goods.objects.filter(name=name)
+    category_id = CategoryGoods.objects.filter(name=category).get().id
+    choice_goods = Goods.objects.filter(category=category_id)
+    
     return choice_goods
 
 
-def get_all_names_goods() -> BaseManager[Goods]:
+def get_all_category_name() -> BaseManager[Goods]:
     """Gives away all types goods"""
 
-    names_goods = Goods.objects.order_by('name').distinct('name')
+    names_goods = CategoryGoods.objects.order_by('name').distinct('name')
     return names_goods
 
 

@@ -22,7 +22,7 @@ class ChoiceGoods(BaseDataMixin, GetFavouriteGoodsMixin, ListView):
     context_object_name = "choice_type"
 
     def get_queryset(self) -> BaseManager[Goods]:
-        choice_goods = goods_services.get_all_goods_for_name(
+        choice_goods = goods_services.get_all_goods_for_category(
             self.kwargs["type_product"]
         )
         return choice_goods
