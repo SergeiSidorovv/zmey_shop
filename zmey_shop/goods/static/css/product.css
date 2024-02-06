@@ -12,6 +12,10 @@
   padding-bottom: 50px;
 }
 
+.product-name .product-items{
+  float: right;
+}
+
 .table-content ul {
   padding: 0;
   margin: 0;

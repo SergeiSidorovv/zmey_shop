@@ -28,7 +28,7 @@ class ChoiceGoods(BaseDataMixin, GetFavouriteGoodsMixin, ListView):
         return choice_goods
 
 
-class Product(ListView):
+class Product(GetFavouriteGoodsMixin, ListView):
     model = Goods
     template_name = "goods/product.html"
     context_object_name = "product"

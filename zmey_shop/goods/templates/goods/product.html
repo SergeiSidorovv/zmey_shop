@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
+
+    
     <div class="container-fluid">
         <div class="row">
             <div class="col">
@@ -30,6 +32,24 @@
             <div class="col">
                 {% for criteria in product %}
                     <div class="product-name">
+                        <div class="product-items">
+                            <form action="{% url "favourite:add" criteria.id %}"  method="post" class="manage_favourite">
+                                {% csrf_token %}
+                                {% if criteria.id in favourite_goods %}
+                                    <button class="heart_favourite" type="submit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  viewBox="0 0 16 16">
+                                            <path  class="white" fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                        </svg>
+                                    </button>
+                                {% else %}
+                                    <button class="heart" type="submit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  viewBox="0 0 16 16">
+                                            <path  class="red" fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                        </svg>
+                                    </button>
+                                {% endif %} 
+                            </form>    
+                        </div>        
                         <h2>{{ criteria.name }}</h2>
                         <p>Артикль:</p>
                     </div>
@@ -227,5 +247,4 @@
             </div>
         </div>
     </div>
-
 {% endblock %}

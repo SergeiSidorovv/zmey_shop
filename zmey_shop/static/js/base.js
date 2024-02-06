@@ -1,4 +1,3 @@
-
 $(function ($) {
     $('.manage_favourite').submit(function (e) {
         if (e.target.querySelector('.heart')) {
