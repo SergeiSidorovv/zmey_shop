@@ -4,52 +4,55 @@ a.url {
 }
 
 .product-card {
+  width: 30%;
   border: 1px solid #FFEBCD;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.06);
-	transition: all .3s;
+  transition: all .3s;
   float: left;
 }
+
 .product-card:hover {
-	box-shadow: 0 14px 30px -15px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 14px 30px -15px rgba(0, 0, 0, 0.75);
 }
 
-.product-thumb a{
+.product-thumb a {
   display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 200px;
-	padding: 20px;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  padding: 5px;
 }
 
-.product-thumb img{
+.product-thumb img {
   max-width: 100%;
-	max-height: 100%;
+  max-height: 100%;
 }
 
 .product-details {
-	padding: 20px;
+  padding: 20px;
 }
 
 .product-details h4 a {
-	font-weight: 500;
-	display: block;
-	height: 60px;
-	overflow: hidden;
-	text-decoration: none;
+  font-weight: 500;
+  display: block;
+  height: 60px;
+  overflow: hidden;
+  text-decoration: none;
 }
 
 .product-details p {
-	font-size: 15px;
-	margin-bottom: 20px;
-	color: #999;
-	height: 44px;
-	overflow: hidden;
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: #999;
+  width: clamp(20ch, 75ch);
+  height: 44px;
+  overflow: hidden;
 }
 
 .product-bottom-details {
-	overflow: hidden;
-	border-top: 1px solid #eee;
-	padding-top: 20px;
+  overflow: hidden;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
 }
 
 .product-view {
@@ -62,7 +65,7 @@ a.url {
   background: none;
   outline: none;
   border: none;
-  color:  #FFEBCD;
+  color: #FFEBCD;
 }
 
 .heart svg {
@@ -91,8 +94,5 @@ a.url {
 
 .heart_favourite:hover .white,
 .active_favourite_heart .white {
-  fill:  #FFEBCD;
+  fill: #FFEBCD;
 }
-
-
-
