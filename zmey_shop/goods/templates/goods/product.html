@@ -1,7 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-
-    
     <div class="container-fluid">
         <div class="row">
             <div class="col">
@@ -51,7 +49,7 @@
                             </form>    
                         </div>        
                         <h2>{{ criteria.name }}</h2>
-                        <p>Артикль:</p>
+                        <p>Артикль: {{ criteria.article }}</p>
                     </div>
 
                     <div class="size">
@@ -70,19 +68,19 @@
                               <div class="left">
                                 <span class="item__label">Пряжа</span>
                               </div>
-                              <span class="item__cor">Название</span>
+                              <span class="item__cor">{{criteria.yarn}}</span>
                             </li>
                             <li>
                               <div class="left">
                                 <span class="item__label">Состав</span>
                               </div>    
-                              <span class="item__cor">Хлопок</span>
+                              <span class="item__cor">{{criteria.composition}}</span>
                             </li>
                             <li>
                             <div class="left">
                                 <span class="item__label">Доп. Материалы</span>
                             </div>    
-                            <span class="item__cor">Камни</span>
+                            <span class="item__cor">{{criteria.additional_materials}}</span>
                             </li>
                         </ul>
                     </div>
@@ -121,7 +119,7 @@
                                     </h2>
                                     <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                       <div class="accordion-body">
-                                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                        <p>{{ criteria.description }}</p>
                                       </div>
                                     </div>
                                   </div>

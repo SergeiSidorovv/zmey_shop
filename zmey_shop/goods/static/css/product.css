@@ -23,6 +23,8 @@
 }
 
 .table-content ul li {
+  border: 1px solid #FFEBCD;
+  padding: 5px;
   display: block;
   overflow: hidden;
   position: relative;
