@@ -19,7 +19,7 @@ class GoodsModelTest(TestCase):
         product = Goods.objects.first()
         field_label = product._meta.get_field("name").verbose_name
 
-        self.assertEqual(field_label, "имя")
+        self.assertEqual(field_label, "Имя")
 
     def test_slug_label(self):
         """The slug label is written correctly"""
@@ -35,7 +35,7 @@ class GoodsModelTest(TestCase):
         product = Goods.objects.get(slug="kardigan")
         field_label = product._meta.get_field("color").verbose_name
 
-        self.assertEqual(field_label, "цвет")
+        self.assertEqual(field_label, "Цвет")
 
     def test_main_photo_label(self):
         """The main photo label is written correctly"""
@@ -43,7 +43,7 @@ class GoodsModelTest(TestCase):
         product = Goods.objects.last()
         field_label = product._meta.get_field("main_photo").verbose_name
 
-        self.assertEqual(field_label, "основное_фото")
+        self.assertEqual(field_label, "Основное_фото")
 
     def test_name_max_length(self):
         """The name length is written correctly"""

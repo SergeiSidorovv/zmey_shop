@@ -3,10 +3,15 @@ from django.urls import reverse
 
 
 class Goods(models.Model):
-    name = models.CharField(max_length=60, verbose_name="имя")
+    name = models.CharField(max_length=60, verbose_name="Имя")
     slug = models.SlugField(max_length=60, unique=True, verbose_name="URL")
-    color = models.CharField(max_length=60, verbose_name="цвет")
-    main_photo = models.ImageField(upload_to='main_photo', verbose_name='основное_фото', null=True)
+    article = models.IntegerField(unique=True, null=True, verbose_name="Артикль")
+    description = models.TextField(max_length=5000, null=True, verbose_name="Описание товара")
+    yarn = models.CharField(max_length=100, null=True, verbose_name="Название пряжи")
+    composition = models.CharField(max_length=100, null=True, verbose_name="Состав")
+    additional_materials = models.CharField(max_length=100, null=True, verbose_name="Доп. материалы")
+    color = models.CharField(max_length=60, verbose_name="Цвет")
+    main_photo = models.ImageField(upload_to='main_photo', null=True , verbose_name='Основное_фото')
 
     def __str__(self):
         return self.name
