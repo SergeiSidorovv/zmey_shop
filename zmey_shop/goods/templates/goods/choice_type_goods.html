@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% if choice_type %}
     {% for product in choice_type %}
         <div class="product-card">
             <div class="product-thumb">
@@ -35,4 +36,7 @@
             </div>
         </div> 
     {% endfor %}
+{% else %}
+        <div>По такому запросу ничего не найдено</div>
+{% endif %}
 {% endblock %}

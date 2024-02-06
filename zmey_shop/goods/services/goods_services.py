@@ -10,7 +10,7 @@ def get_goods_data() -> BaseManager[Goods]:
     return goods_data
 
 
-def get_product(slug:str) -> BaseManager[Goods]:
+def get_product(slug: str) -> BaseManager[Goods]:
     """Gives away the product
 
     Keyword arguments:
@@ -21,22 +21,24 @@ def get_product(slug:str) -> BaseManager[Goods]:
     return product
 
 
-def get_all_goods_for_category(category:str) -> BaseManager[Goods]:
+def get_all_goods_for_category(category: str) -> BaseManager[Goods] | str:
     """Gives all products from the database that have the same names as the name parameter
 
     Keyword arguments:
     name -- a parameter that transmits the product name
     """
-    category_id = CategoryGoods.objects.filter(name=category).get().id
-    choice_goods = Goods.objects.filter(category=category_id)
-    
-    return choice_goods
 
+    category = CategoryGoods.objects.filter(name=category)
+    if category:
+        category_id = category.get().id
+        choice_goods = Goods.objects.filter(category=category_id)
+        return choice_goods
+    return category
 
 def get_all_category_name() -> BaseManager[Goods]:
     """Gives away all types goods"""
 
-    names_goods = CategoryGoods.objects.order_by('name').distinct('name')
+    names_goods = CategoryGoods.objects.order_by("name").distinct("name")
     return names_goods
 
 

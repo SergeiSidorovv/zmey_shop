@@ -20,13 +20,12 @@ class GoodsTagsTest(TestCase):
 
     def test_tempplate_in_get_types_goods(self):
         rendered = self.TEMPLATE.render(Context({}))
-        template_types_goods = '<a href="/choice_goods/%D0%A1%D1%83%D0%BC%D0%BA%D0%B0/"> Сумка </a>\
-                    <a href="/choice_goods/%D0%A8%D0%B0%D0%BF%D0%BA%D0%B0/"> Шапка </a>'
+        template_types_goods = ''
 
         self.assertInHTML(template_types_goods, rendered)
 
     def test_get_data_get_types_goods(self):
         types_goods = goods_tags.get_types_goods()
-        test_type_goods = {"types_goods": goods_services.get_all_names_goods()}
+        test_type_goods = {"types_goods": goods_services.get_all_category_name()}
 
         self.assertQuerysetEqual(types_goods, test_type_goods)

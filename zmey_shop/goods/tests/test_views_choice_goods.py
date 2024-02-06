@@ -1,7 +1,7 @@
 from django.test import TestCase, Client, RequestFactory
 from django.urls import reverse
 
-from goods.models import Goods
+from goods.models import Goods, CategoryGoods
 from goods import views
 
 
@@ -10,14 +10,15 @@ class ChoiceGoodsTest(TestCase):
         self.factory = RequestFactory()
         self.client = Client()
         self.max_count_goods_on_page = views.ChoiceGoods.paginate_by
+        cat = CategoryGoods.objects.create(name="Верхняя-одежда", slug="cheq")
         Goods.objects.create(
-            name="Кардиган", slug="Kardigan", color="pink", main_photo="asdasd"
+            name="Кардиган", slug="Kardigan", color="pink", main_photo="asdasd", category=cat
         )
 
     def test_url_status_code(self):
         """The url works correctly when specifying the path"""
 
-        response = self.client.get("/choice_goods/<str:type_product>/")
+        response = self.client.get("/choice_goods/Верхняя-одежда/")
 
         self.assertEqual(response.status_code, 200)
 
@@ -25,7 +26,7 @@ class ChoiceGoodsTest(TestCase):
         """The url works correctly when specifying the namespace"""
 
         response = self.client.get(
-            reverse("choice_goods", kwargs={"type_product": "Кардиган"})
+            reverse("choice_goods", kwargs={"type_product": "Верхняя-одежда"})
         )
 
         self.assertEqual(response.status_code, 200)
@@ -34,7 +35,7 @@ class ChoiceGoodsTest(TestCase):
         """The url works correctly without goods"""
 
         response = self.client.get(
-            reverse("choice_goods", kwargs={"type_product": "Пальто"})
+            reverse("choice_goods", kwargs={"type_product": "Нчфыв"})
         )
 
         self.assertEqual(response.status_code, 200)
@@ -85,11 +86,12 @@ class ChoiceGoodsTest(TestCase):
         """The data from the get queryset is returned correct"""
 
         request = self.factory.get(
-            reverse("choice_goods", kwargs={"type_product": "Кардиган"})
+            reverse("choice_goods", kwargs={"type_product": "Верхняя-одежда"})
         )
-        goods = Goods.objects.filter(name="Кардиган")
+        category = CategoryGoods.objects.first()
+        goods = Goods.objects.filter(category=category.id)
         view_choice_goods = views.ChoiceGoods()
-        view_choice_goods.setup(request, type_product="Кардиган")
+        view_choice_goods.setup(request, type_product="Верхняя-одежда")
 
         queryset_choice_goods = view_choice_goods.get_queryset()
 
