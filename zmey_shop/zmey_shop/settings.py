@@ -28,11 +28,41 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1"]
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters":{
+        "verbose": {
+            "format": "{levelname} {asctime} {module} {process:d} {thread:d} {message}",
+            "style": "{",
+            },
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
+        },
+        "file": {
+            "level": "WARNING",
+            "class": "logging.FileHandler",
+            "filename": "logging_project.log",
+            "formatter": "verbose",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": "INFO",
+            "propagate": True,
+        },
+    },
+}
 
 # Application definition
 

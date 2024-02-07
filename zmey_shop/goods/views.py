@@ -7,6 +7,7 @@ from goods.mixins.goods_mixins import BaseDataMixin
 from goods.services import goods_services
 from goods_favourite.mixins.favourite_mixins import GetFavouriteGoodsMixin
 from pictures.services import picture_services
+from django.shortcuts import redirect
 
 
 class AllGoods(BaseDataMixin, GetFavouriteGoodsMixin, ListView):
@@ -46,7 +47,6 @@ class Product(GetFavouriteGoodsMixin, ListView):
 class SearchGoods(BaseDataMixin, GetFavouriteGoodsMixin, ListView):
     template_name = "goods/search_goods.html"
     context_object_name = "search_goods"
-
     
     def get_queryset(self) -> BaseManager[Goods]:
         search_goods = goods_services.get_search_goods(
