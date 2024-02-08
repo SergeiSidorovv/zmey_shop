@@ -2,6 +2,7 @@ import logging
 from typing import Any
 from django.views.generic import ListView
 from django.db.models.manager import BaseManager
+from django.http import Http404
 
 from goods.models import Goods
 from goods.mixins.goods_mixins import BaseDataMixin
@@ -40,7 +41,11 @@ class Product(GetFavouriteGoodsMixin, ListView):
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         self.object_list = self.get_queryset()
         context = super().get_context_data(**kwargs)
+        logger.info(self.kwargs["product_slug"])
         context["product"] = goods_services.get_product(self.kwargs["product_slug"])
+        if not context["product"]:
+            logger.info("Такокго товара нет, страница не найдена")
+            raise Http404()
         context["pictures"] = picture_services.get_pictures_from_goods_id(
             context["product"].get().id
         )
