@@ -37,5 +37,24 @@
         </div>
     </div>  
 {% endfor %}
-
 {% endblock %}
+{% block paginator %}
+    <div class="pagination-container">
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}&search_form={{ search_form }}">Предыдущая</a>
+            {% endif %}
+            {% for p in paginator.page_range %}
+                {% if p == page_obj.number %}
+                    <a class="color" href="?page={{ p }}&search_form={{ search_form }}">{{p}}</a>
+                {% elif p >= page_obj.number|add:-1 and p <= page_obj.number|add:1 %}
+                    <a href="?page={{ p }}&search_form={{ search_form }}">{{p}}</a>
+                {% endif %}
+
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}&search_form={{ search_form }}">Следующая</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock paginator %}
