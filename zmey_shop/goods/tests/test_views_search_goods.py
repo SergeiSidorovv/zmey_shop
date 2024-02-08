@@ -27,6 +27,13 @@ class SearchGoodsTest(TestCase):
         response = self.client.get(reverse("search"), {"search_form": "Перчатки"})
 
         self.assertEqual(response.status_code, 200)
+    
+    def test_url_status_without_data(self):
+        """The url works correctly when without data"""
+
+        response = self.client.get(reverse("search"), {})
+
+        self.assertEqual(response.status_code, 200)
 
     def test_template_name(self):
         """The template name is write correct"""
