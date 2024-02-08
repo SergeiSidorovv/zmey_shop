@@ -1,7 +1,7 @@
+import logging
 from typing import Any
 from django.views.generic import ListView
 from django.db.models.manager import BaseManager
-import logging
 
 from goods.models import Goods
 from goods.mixins.goods_mixins import BaseDataMixin

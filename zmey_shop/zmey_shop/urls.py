@@ -18,8 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 
+from core import views
 from zmey_shop import settings
 
+handler404 = views.page_not_found
+handler403 = views.page_forbidden
+handler500 = views.page_server_error
 
 urlpatterns = [
     path("admin/", admin.site.urls),
