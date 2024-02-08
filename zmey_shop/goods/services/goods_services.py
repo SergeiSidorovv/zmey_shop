@@ -1,7 +1,10 @@
+import logging
 from django.db.models.manager import BaseManager
 
 from goods.models import Goods, CategoryGoods
 
+
+logger = logging.getLogger('django')
 
 def get_goods_data() -> BaseManager[Goods]:
     """Get goods all data from database"""
@@ -42,7 +45,7 @@ def get_all_category_name() -> BaseManager[Goods]:
     return names_goods
 
 
-def get_search_goods(name_product: BaseManager[Goods]) -> BaseManager[Goods]:
+def get_search_goods(name_product: str) -> BaseManager[Goods]:
     """Get all data about goods by search name product from Goods database
 
     Keyword arguments:
