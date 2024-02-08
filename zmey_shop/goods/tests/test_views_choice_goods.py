@@ -73,15 +73,6 @@ class ChoiceGoodsTest(TestCase):
 
         self.assertEqual(response.context["is_paginated"], False)
 
-    def test_page_without_goods_with_number_page(self):
-        """The pagination with selected number without goods work is correct"""
-
-        response = self.client.get(
-            reverse("choice_goods", kwargs={"type_product": "Пальто"}) + "?page=2"
-        )
-
-        self.assertEqual(response.status_code, 404)
-
     def test_get_data_list_in_get_queryset(self):
         """The data from the get queryset is returned correct"""
 

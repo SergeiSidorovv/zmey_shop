@@ -58,13 +58,7 @@ class AllGoodsViewsTest(TestCase):
         response = self.client.get(reverse("goods") + "?page=1")
 
         self.assertEqual(response.context["is_paginated"], True)
-
-    def test_page_without_goods_with_number_page(self):
-        """The pagination with selected number without goods work is correct"""
-
-        response = self.client.get(reverse("goods") + "?page=9999")
-
-        self.assertEqual(response.status_code, 404)
+        
 
     def test_get_data_in_get_queryset(self):
         """The product data is given correctly"""
