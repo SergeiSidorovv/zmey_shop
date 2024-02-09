@@ -4,6 +4,7 @@ from django.views.generic import ListView
 from django.db.models.manager import BaseManager
 from django.http import Http404
 
+
 from goods.models import Goods
 from goods.mixins.goods_mixins import BaseDataMixin
 from goods.services import goods_services
@@ -11,7 +12,7 @@ from goods_favourite.mixins.favourite_mixins import GetFavouriteGoodsMixin
 from pictures.services import picture_services
 
 
-logger = logging.getLogger('django')
+logger = logging.getLogger("django")
 
 
 class AllGoods(BaseDataMixin, GetFavouriteGoodsMixin, ListView):
@@ -41,7 +42,6 @@ class Product(GetFavouriteGoodsMixin, ListView):
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         self.object_list = self.get_queryset()
         context = super().get_context_data(**kwargs)
-        logger.info(self.kwargs["product_slug"])
         context["product"] = goods_services.get_product(self.kwargs["product_slug"])
         if not context["product"]:
             logger.info("Такокго товара нет, страница не найдена")
@@ -55,14 +55,12 @@ class Product(GetFavouriteGoodsMixin, ListView):
 class SearchGoods(BaseDataMixin, GetFavouriteGoodsMixin, ListView):
     template_name = "goods/search_goods.html"
     context_object_name = "search_goods"
-    
+
     def get_queryset(self) -> BaseManager[Goods]:
 
         if not self.request.GET:
             empty_name = ""
-            search_goods = goods_services.get_search_goods(
-                empty_name
-            )
+            search_goods = goods_services.get_search_goods(empty_name)
             return search_goods
 
         search_goods = goods_services.get_search_goods(
@@ -70,10 +68,8 @@ class SearchGoods(BaseDataMixin, GetFavouriteGoodsMixin, ListView):
         )
         return search_goods
 
-
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         self.object_list = self.get_queryset()
         context = super().get_context_data(**kwargs)
         context["search_form"] = self.request.GET.get("search_form")
         return context
-    

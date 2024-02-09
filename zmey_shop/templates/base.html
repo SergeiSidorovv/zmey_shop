@@ -102,6 +102,7 @@
     </div> 
    
     {% block paginator %}
+    {% if page_obj.has_other_pages %}
         <div class="pagination-container">
             <div class="pagination">
                 {% if page_obj.has_previous %}
@@ -109,17 +110,17 @@
                 {% endif %}
                 {% for p in paginator.page_range %}
                     {% if p == page_obj.number %}
-                        <a class="color" href="?page={{ p }}">{{p}}</a>
+                        <a class="color" href="?page={{ p}}">{{p}}</a>
                     {% elif p >= page_obj.number|add:-1 and p <= page_obj.number|add:1 %}
                         <a href="?page={{ p }}">{{p}}</a>
                     {% endif %}
-                    
                 {% endfor %}
                 {% if page_obj.has_next %}
                     <a href="?page={{ page_obj.next_page_number }}">Следующая</a>
                 {% endif %}
             </div>
-        </div>
+        </div> 
+    {% endif %}
     {% endblock paginator %}
 
 

@@ -6,10 +6,10 @@ from django.contrib.auth.models import AnonymousUser
 
 from goods_favourite.models import Favourite
 from goods_favourite.services import favourite_services
+from goods.mixins.goods_mixins import BaseDataMixin
 
 
-class FavouriteGoods(LoginRequiredMixin, ListView):
-    paginate_by = 15
+class FavouriteGoods(LoginRequiredMixin, BaseDataMixin, ListView):
     model = Favourite
     template_name = "goods_favourite/favourite_goods_view.html"
     context_object_name = "favourites"

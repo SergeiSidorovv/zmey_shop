@@ -39,6 +39,7 @@
 {% endfor %}
 {% endblock %}
 {% block paginator %}
+{% if page_obj.has_other_pages %}
     <div class="pagination-container">
         <div class="pagination">
             {% if page_obj.has_previous %}
@@ -57,4 +58,5 @@
             {% endif %}
         </div>
     </div>
+{% endif %}
 {% endblock paginator %}
