@@ -1,7 +1,12 @@
+import logging
 from django.test import TestCase
+from django.db.models import Count
 
 from goods.services import goods_services
 from goods.models import Goods, CategoryGoods
+
+
+logger = logging.getLogger("django")
 
 
 class GoodsServicesTest(TestCase):
@@ -25,12 +30,20 @@ class GoodsServicesTest(TestCase):
             name="Сумка", slug="symka", color="red", main_photo="asdasd", category=cat
         )
 
-    def test_get_goods_data(self):
-        """The function return is correct data"""
+    def test_get_goods_data_for_type_return_data(self):
+        """The function return is correct type data"""
 
-        goods = Goods.objects.all()
-
+        goods = Goods.objects.only("id")
         self.assertQuerysetEqual(goods, goods_services.get_goods_data())
+
+    def test_get_goods_data_for_count_return_data(self):
+        """The function return is correct count data"""
+
+        count_test_goods = Goods.objects.only(
+            "id", "name", "main_photo", "description"
+        ).count()
+        count_goods = goods_services.get_goods_data().count()
+        self.assertEqual(count_test_goods, count_goods)
 
     def test_get_product_with_available_product(self):
         """The function with a product with available slug return is correct data"""

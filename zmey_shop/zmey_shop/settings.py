@@ -48,18 +48,25 @@ LOGGING = {
             "class": "logging.StreamHandler",
             "formatter": "verbose",
         },
-        "file": {
-            "level": "WARNING",
-            "class": "logging.FileHandler",
-            "filename": "logging_project.log",
-            "formatter": "verbose",
+        # "file": {
+        #     "level": "WARNING",
+        #     "class": "logging.FileHandler",
+        #     "filename": "logging_project.log",
+        #     "formatter": "verbose",
+        # },
+        "db_console": {
+            "class": "logging.StreamHandler",
         },
     },
     "loggers": {
-        "django": {
-            "handlers": ["console"],
-            "level": "INFO",
-            "propagate": True,
+        # "django": {
+        #     "handlers": ["console"],
+        #     "level": "WARNING",
+        #     "propagate": True,
+        # },
+        "django.db.backends":{
+            'handlers': ['db_console'],
+            "level": 'DEBUG',
         },
     },
 }

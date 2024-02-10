@@ -10,7 +10,6 @@ class BaseDataMixin:
     paginate_by = 15
 
     def paginate_queryset(self, queryset, page_size):
-        """Paginate the queryset, if needed."""
         paginator = self.get_paginator(
             queryset,
             page_size,

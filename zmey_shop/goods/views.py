@@ -19,7 +19,7 @@ class AllGoods(BaseDataMixin, GetFavouriteGoodsMixin, ListView):
     template_name = "goods/all_view_goods.html"
     context_object_name = "goods"
 
-    def get_queryset(self):
+    def get_queryset(self)-> BaseManager[Goods]:
         return goods_services.get_goods_data()
 
 
