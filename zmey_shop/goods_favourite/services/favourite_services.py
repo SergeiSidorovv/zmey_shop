@@ -1,6 +1,8 @@
 from django.db.models.manager import BaseManager
+from django.db.models import Prefetch
 
 from goods_favourite.models import Favourite
+from goods.models import Goods
 
 
 def get_favourite_goods(user_id: int) -> BaseManager[Favourite]:
@@ -10,11 +12,15 @@ def get_favourite_goods(user_id: int) -> BaseManager[Favourite]:
     user_id -- the ID of the registered user
     """
 
-    favourite_goods = Favourite.objects.filter(
-        user_id=user_id).prefetch_related(
-            "goods").prefetch_related(
-                "user"
-            )
+    favourite_goods = Favourite.objects.filter(user_id=user_id).only("goods").prefetch_related(
+        Prefetch(
+            "goods",
+            queryset=Goods.objects.only(
+                "id", "name", "main_photo", "description", "slug"
+            ),
+        )
+    )
+
     return favourite_goods
 
 
@@ -58,5 +64,5 @@ def get_favourite_goods_id(user_id: int) -> BaseManager[Favourite]:
 
 def delete_favourite_product(favourite_product: BaseManager[Favourite]):
     """Favourite product delete from Favourite database"""
-    
+
     favourite_product.delete()

@@ -4,12 +4,13 @@ from django.db.models.manager import BaseManager
 from goods.models import Goods, CategoryGoods
 
 
-logger = logging.getLogger('django')
+logger = logging.getLogger("django")
+
 
 def get_goods_data() -> BaseManager[Goods]:
     """Get goods all data from database"""
 
-    goods_data = Goods.objects.only("id","name", "main_photo","description", "slug")
+    goods_data = Goods.objects.only("id", "name", "main_photo", "description", "slug")
     return goods_data
 
 
@@ -30,14 +31,17 @@ def get_all_goods_for_category(category: str) -> BaseManager[Goods] | str:
     Keyword arguments:
     name -- a parameter that transmits the product name
     """
- 
+
     category_query = CategoryGoods.objects.filter(name=category)
 
     if category_query:
         category_id = category_query.get().id
-        choice_goods = Goods.objects.filter(category=category_id).prefetch_related("category")
+        choice_goods = Goods.objects.filter(category=category_id).prefetch_related(
+            "category"
+        )
         return choice_goods
     return category_query
+
 
 def get_all_category_name() -> BaseManager[Goods]:
     """Gives away all types goods"""

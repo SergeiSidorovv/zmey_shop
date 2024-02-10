@@ -1,7 +1,9 @@
-from goods.models import Goods
-from core.views import SafePaginator
 from django.core.paginator import InvalidPage
 from django.http import Http404
+
+from goods.models import Goods
+from core.views import SafePaginator
+
 
 
 class BaseDataMixin:
