@@ -36,7 +36,9 @@ def get_all_goods_for_category(category: str) -> BaseManager[Goods] | str:
 
     if category_query:
         category_id = category_query.get().id
-        choice_goods = Goods.objects.filter(category=category_id).only("id", "name", "main_photo", "description", "slug")
+        choice_goods = Goods.objects.filter(category=category_id).only(
+            "id", "name", "main_photo", "description", "slug"
+        )
         return choice_goods
     return category_query
 
@@ -55,5 +57,7 @@ def get_search_goods(name_product: str) -> BaseManager[Goods]:
     name_product -- criteria for searching products with a similar name in Goods database
     """
 
-    search_goods = Goods.objects.filter(name__icontains=name_product)
+    search_goods = Goods.objects.filter(name__icontains=name_product).only(
+        "id", "name", "main_photo", "description", "slug"
+    )
     return search_goods
