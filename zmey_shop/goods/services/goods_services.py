@@ -42,7 +42,7 @@ def get_all_goods_for_category(category: str) -> BaseManager[Goods] | str:
 def get_all_category_name() -> BaseManager[Goods]:
     """Gives away all types goods"""
 
-    names_goods = CategoryGoods.objects.order_by("name").distinct("name")
+    names_goods = CategoryGoods.objects.only("name")
     return names_goods
 
 

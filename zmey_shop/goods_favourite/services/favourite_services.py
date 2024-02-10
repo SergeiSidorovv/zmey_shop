@@ -52,7 +52,7 @@ def get_favourite_goods_id(user_id: int) -> BaseManager[Favourite]:
 
     favourite_goods_id = Favourite.objects.filter(user_id=user_id).values_list(
         "goods_id", flat=True
-    ).prefetch_related("user").prefetch_related("goods")
+    )
     return favourite_goods_id
 
 

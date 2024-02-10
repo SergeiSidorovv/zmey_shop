@@ -1,6 +1,5 @@
 import logging
 from django.test import TestCase
-from django.db.models import Count
 
 from goods.services import goods_services
 from goods.models import Goods, CategoryGoods
