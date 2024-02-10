@@ -32,13 +32,11 @@ def get_all_goods_for_category(category: str) -> BaseManager[Goods] | str:
     name -- a parameter that transmits the product name
     """
 
-    category_query = CategoryGoods.objects.filter(name=category)
+    category_query = CategoryGoods.objects.filter(name=category).only("id")
 
     if category_query:
         category_id = category_query.get().id
-        choice_goods = Goods.objects.filter(category=category_id).prefetch_related(
-            "category"
-        )
+        choice_goods = Goods.objects.filter(category=category_id).only("id", "name", "main_photo", "description", "slug")
         return choice_goods
     return category_query
 
