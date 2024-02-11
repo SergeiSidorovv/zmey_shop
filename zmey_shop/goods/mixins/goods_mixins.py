@@ -5,13 +5,23 @@ from goods.models import Goods
 from core.views import SafePaginator
 
 
-
 class BaseDataMixin:
+    """
+    A basic Mixin that stores the model, the number of products on the page,
+    and the pagination class for further inherited views
+    """
+
     paginator_class = SafePaginator
     model = Goods
     paginate_by = 15
 
     def paginate_queryset(self, queryset, page_size):
+        """
+        Splits a set of queries into pages, differs from the basic function in that instead
+        of an error when selecting a non-existent page, it returns either the first or
+        the last page, depending on the query
+        """
+
         paginator = self.get_paginator(
             queryset,
             page_size,

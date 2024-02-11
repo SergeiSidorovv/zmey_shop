@@ -3,6 +3,8 @@ from django.urls import reverse
 
 
 class Goods(models.Model):
+    """Goods models in the database"""
+
     name = models.CharField(max_length=60, verbose_name="Имя")
     slug = models.SlugField(max_length=60, unique=True, verbose_name="URL")
     article = models.IntegerField(unique=True, null=True, verbose_name="Артикль")
@@ -23,12 +25,18 @@ class Goods(models.Model):
     )
 
     def __str__(self):
+        """Returns the product name"""
+
         return self.name
 
     def get_absolute_url(self):
+        """Returns a link to the product"""
+
         return reverse("product", kwargs={"product_slug": self.slug})
 
     class Meta:
+        """Metadata by model"""
+        
         verbose_name = "Одежда"
         verbose_name_plural = "Одежды"
         indexes = [models.Index(fields=["slug"])]

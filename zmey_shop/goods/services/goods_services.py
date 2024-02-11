@@ -8,7 +8,7 @@ logger = logging.getLogger("django")
 
 
 def get_goods_data() -> BaseManager[Goods]:
-    """Get goods all data from database"""
+    """Get goods with fields: "id", "name", "main_photo", "description", "slug", from database"""
 
     goods_data = Goods.objects.only("id", "name", "main_photo", "description", "slug")
     return goods_data

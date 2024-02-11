@@ -5,6 +5,11 @@ from goods.models import Goods, CategoryGoods
 
 
 class GoodsAdmin(admin.ModelAdmin):
+    """
+    Displays, allows you to change and add, Goods data stored in database models on the site
+    administrator page
+    """
+
     list_display = [
         "id",
         "name",
@@ -49,12 +54,18 @@ class GoodsAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
 
     def get_html_main_photo(self, picture_object) -> (SafeText | str):
+        """Returns a link to the main product photo"""
+
         if picture_object.main_photo:
             return mark_safe(f"<img src='{picture_object.main_photo.url}' width=50>")
         return "Без фото"
 
 
 class CategoryGoodsAdmin(admin.ModelAdmin):
+    """
+    Displays CategoryGoods data stored in database models on the site administrator page
+    """
+
     list_display = ["id", "name", "slug"]
     list_display_links = ["name", "slug"]
     fields = ["name", "slug"]

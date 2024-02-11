@@ -12,7 +12,7 @@
   padding-bottom: 50px;
 }
 
-.product-name .product-items{
+.product-name .product-items {
   float: right;
 }
 
@@ -105,4 +105,12 @@
 .product-description .accordion-button:focus {
   border-color: black;
   box-shadow: none;
+}
+
+.container-fluid .carousel-inner .carousel-control-prev .carousel-control-prev-icon {
+  background-color: wheat;
+}
+
+.container-fluid .carousel-inner .carousel-control-next .carousel-control-next-icon {
+  background-color: wheat;
 }
