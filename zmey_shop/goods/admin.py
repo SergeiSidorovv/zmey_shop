@@ -4,6 +4,7 @@ from django.utils.safestring import mark_safe, SafeText
 from goods.models import Goods, CategoryGoods
 
 
+
 class GoodsAdmin(admin.ModelAdmin):
     """
     Displays, allows you to change and add, Goods data stored in database models on the site
@@ -22,7 +23,7 @@ class GoodsAdmin(admin.ModelAdmin):
         "color",
         "main_photo",
         "get_html_main_photo",
-        "category"
+        "category",
     ]
     list_display_links = [
         "id",
@@ -49,6 +50,7 @@ class GoodsAdmin(admin.ModelAdmin):
         "main_photo",
         "category",
     ]
+    list_select_related = ["category"]
     search_fields = ["name", "slug", "article"]
     readonly_fields = ["get_html_main_photo"]
     prepopulated_fields = {"slug": ("name",)}
