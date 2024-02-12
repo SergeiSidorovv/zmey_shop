@@ -143,12 +143,11 @@ div .offcanvas-body {
 
 .pagination-container {
     display: block;
+    margin: 100px;
 }
 
 .pagination-container .pagination {
     position: absolute;
-    margin-top: 20px;
-    width: 100%;
     right: 50%;
     left: 50%;
 }
@@ -160,7 +159,6 @@ div .offcanvas-body {
     text-decoration: none;
     transition: background-color .3s;
     border: 1px solid #ddd;
-    margin: 0 4px;
 }
 
 .pagination .color {
@@ -201,10 +199,10 @@ div .offcanvas-body {
 
 footer {
     background-color: #FFEBCD;
-    margin: 300px auto;
+    margin: 0px auto;
+    margin-top: 300px;
     align-items: center;
     text-align: center;
-    background-color: #FFEBCD;
     justify-content: space-between;
     max-width: 1536px;
     max-height: 250px;

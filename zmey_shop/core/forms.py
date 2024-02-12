@@ -2,6 +2,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django import forms
 from captcha.fields import CaptchaField
 
+
 class LoginAdminUserForm(AuthenticationForm):
     """User admin login formm"""
 

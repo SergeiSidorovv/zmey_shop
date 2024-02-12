@@ -31,7 +31,7 @@ handler500 = views.page_server_error
 
 admin.autodiscover()
 admin.site.login_form = forms.LoginAdminUserForm
-admin.site.login_template = 'admin/login.html'
+admin.site.login_template = "admin/login.html"
 
 urlpatterns = [
     path(f'{os.getenv("ADMIN")}/', admin.site.urls),
@@ -39,7 +39,7 @@ urlpatterns = [
     path("favourite/", include("goods_favourite.urls", namespace="favourite")),
     path("users/", include("users.urls", namespace="users")),
     path("__debug__/", include("debug_toolbar.urls")),
-    path('captcha/', include('captcha.urls')),
+    path("captcha/", include("captcha.urls")),
 ]
 
 
