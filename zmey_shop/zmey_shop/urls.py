@@ -17,16 +17,24 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
+import os
+from dotenv import load_dotenv, find_dotenv
 
-from core import views
+
+from core import views, forms
 from zmey_shop import settings
 
+load_dotenv(find_dotenv())
 handler404 = views.page_not_found
 handler403 = views.page_forbidden
 handler500 = views.page_server_error
 
+admin.autodiscover()
+admin.site.login_form = forms.LoginAdminUserForm
+admin.site.login_template = 'admin/login.html'
+
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path(f'{os.getenv("ADMIN")}/', admin.site.urls),
     path("", include("goods.urls")),
     path("favourite/", include("goods_favourite.urls", namespace="favourite")),
     path("users/", include("users.urls", namespace="users")),

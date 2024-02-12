@@ -1,0 +1,23 @@
+{% extends "users/base_password.html" %}
+{% block title_passsword %}
+    <title>
+        Админ логин
+    </title>
+{% endblock title_passsword %}
+
+{% block password_action %}
+    <form class="form" method="post">
+        {% csrf_token %}
+        <div class="container-form">
+            <input type="hidden" class="next-button" name="next" value="{{ next }}">
+            {% for f in form %}
+                <p>
+                    <label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}:</label>
+                    {{ f }}
+                </p>
+                <div class="form-error">{{ f.errors }}</div>
+            {% endfor %}
+            <button class="btn" type="submit" value="Войти">Войти</button>
+        </div>
+    </form> 
+{% endblock  %}
