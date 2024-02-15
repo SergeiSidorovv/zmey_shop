@@ -4,7 +4,7 @@ a.url {
 }
 
 .product-card {
-  width: 30%;
+  width: 31%;
   border: 1px solid #FFEBCD;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.06);
   transition: all .3s;
@@ -19,8 +19,8 @@ a.url {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 250px;
-  padding: 5px;
+  height: 220px;
+  padding: 10px;
 }
 
 .product-thumb img {

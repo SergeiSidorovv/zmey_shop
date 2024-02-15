@@ -9,7 +9,6 @@
     <link type="text/css" href="{% static 'css/goods.css' %}" rel="stylesheet" />
     <link type="text/css" href="{% static 'css/product.css' %}" rel="stylesheet" />
     <link type="text/css" href="{% static 'css/base.css' %}" rel="stylesheet" />
-    <link type="text/css" href="{% static 'css/admin.css' %}" rel="stylesheet" />
     <link rel="icon" href={% static 'images/favicon.ico' %}/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,7 +101,7 @@
         </div>
     </div> 
     {% block paginator %}
-    {% comment %} {% if page_obj.has_other_pages %} {% endcomment %}
+    {% if page_obj.has_other_pages %}
         <div class="pagination-container">
             <div class="pagination">
                 {% if page_obj.has_previous %}
@@ -120,7 +119,7 @@
                 {% endif %}
             </div>
         </div> 
-    {% comment %} {% endif %} {% endcomment %}
+    {% endif %}
     {% endblock paginator %}
     <footer>
         <div class="container-footer">
