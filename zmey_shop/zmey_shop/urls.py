@@ -14,10 +14,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import os
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
-import os
 from dotenv import load_dotenv, find_dotenv
 
 
@@ -38,6 +38,7 @@ urlpatterns = [
     path("", include("goods.urls")),
     path("favourite/", include("goods_favourite.urls", namespace="favourite")),
     path("users/", include("users.urls", namespace="users")),
+    path("footer/", include("footer.urls", namespace="footer")),
     path("__debug__/", include("debug_toolbar.urls")),
     path("captcha/", include("captcha.urls")),
 ]

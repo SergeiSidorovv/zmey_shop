@@ -82,6 +82,7 @@ INSTALLED_APPS = [
     'goods_favourite.apps.GoodsFavouriteConfig',
     'users.apps.UsersConfig',
     'pictures.apps.PicturesConfig',
+    'footer.apps.FooterConfig',
     'debug_toolbar',
     'captcha',
 ]
