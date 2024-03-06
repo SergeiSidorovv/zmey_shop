@@ -28,8 +28,13 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost"]
-INTERNAL_IPS = []
+ALLOWED_HOSTS = [
+    "*",
+    ]
+# INTERNAL_IPS = [
+#     "localhost",
+#     "127.0.0.1"
+#     ]
 
 
 LOGGING = {
@@ -67,7 +72,7 @@ LOGGING = {
         #     "level": 'DEBUG',
         # },
     },
-}
+}  
 
 INSTALLED_APPS = [
     'django.contrib.admin',

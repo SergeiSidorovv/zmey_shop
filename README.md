@@ -3,6 +3,7 @@
 ![Static Badge](https://img.shields.io/badge/pip-24.0-geen)
 ![Static Badge](https://img.shields.io/badge/license-MIT-geen)
 ![Static Badge](https://img.shields.io/badge/version-1.0-geen)
+![Static Badge](https://img.shields.io/badge/coverage-97%-geen)
 ___
 
 ***ZmeyShop*** - это интернет магазин, в котором продаются вязаные вещи. Серверная часть сайта написана на Django4.2
@@ -23,11 +24,13 @@ ___
 ![Static Badge](https://img.shields.io/badge/postgresql-15-blue)
 ![Static Badge](https://img.shields.io/badge/psycopg-3.1.18-blue)
 ![Static Badge](https://img.shields.io/badge/sqlparse-0.4.4-blue)
-![Static Badge](https://img.shields.io/badge/Pillow-10.1-blue)
 ![Static Badge](https://img.shields.io/badge/docker-25.0-blue)
+![Static Badge](https://img.shields.io/badge/Pillow-10.1-blue)
 ![Static Badge](https://img.shields.io/badge/coverage-7.4-blue)
-![Static Badge](https://img.shields.io/badge/unittest--blue)
-![Static Badge](https://img.shields.io/badge/logging--blue)
+![Static Badge](https://img.shields.io/badge/tests-unittest-blue)
+![Static Badge](https://img.shields.io/badge/linting-pylint-blue)
+![Static Badge](https://img.shields.io/badge/logs-logging-blue)
+
 ____
 ### **Разработчики**
 - [SergeiSidorovv](https://github.com/SergeiSidorovv)

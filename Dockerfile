@@ -11,6 +11,7 @@ ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBUTECODE=1
 
 WORKDIR /zmey_shop
+EXPOSE 8000
 
 RUN adduser --system --group sergeisidorov801
 
@@ -25,4 +26,3 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     pip install  -r requirements.txt
 
 USER sergeisidorov801
-EXPOSE 8000

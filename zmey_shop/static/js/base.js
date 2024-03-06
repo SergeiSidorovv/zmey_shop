@@ -25,3 +25,12 @@ $(function ($) {
 function showImage() {
     document.getElementById("myImage").style.display = "block";  
 }
+
+var form = document.getElementById("myForm");
+form.onsubmit = function() {
+alert("Чтобы добавить в избранное нужно зарегистрироваться!");
+return false;
+}
+function showMessage() {
+    alert("Для добавления в избранное, нужно зарегистрироваться!");
+    }
