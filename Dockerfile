@@ -17,6 +17,7 @@ RUN adduser --system --group sergeisidorov801
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
+    redis-server \
     postgresql-client-15 
 
 COPY --chown=sergeisidorov801:sergeisidorov801 --from=build_docker zmey_shop/requirements.txt requirements.txt
