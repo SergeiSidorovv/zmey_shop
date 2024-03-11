@@ -60,7 +60,6 @@ class Product(GetFavouriteGoodsMixin, ListView):
         and pictures to the item, from database for this view.
         """
 
-        self.object_list = self.get_queryset()
         context = super().get_context_data(**kwargs)
         context["product"] = goods_services.get_product(self.kwargs["product_slug"])
         if not context["product"]:
