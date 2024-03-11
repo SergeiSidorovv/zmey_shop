@@ -2,6 +2,7 @@
 <html lang="en">
 {% load static %}
 {% load goods_tags %}
+{% load cache %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -82,11 +83,13 @@
                 <a href="{% url 'goods' %}">ZMEYSHOP</a>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body">
-                <div class="types_goods">
-                    {% get_types_goods %}
+            {% cache 50 offcanvas-body %}
+                <div class="offcanvas-body">
+                    <div class="types_goods">
+                        {% get_types_goods %}
+                    </div>
                 </div>
-            </div>
+            {% endcache %}
             <div class="offcanvas-footer">
                 <a class="telegram-brand" href="https://t.me/ollzmey" target="_blank"><i class="fa-brands fa-telegram"></i></a>
             </div>

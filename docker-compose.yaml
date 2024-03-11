@@ -15,11 +15,12 @@ services:
       - DB_HOST=database
     depends_on:
       - database
+      - redis
 
   database:
     container_name: database_postgres
     image: postgres:15.6-bookworm
-    volume:
+    volumes:
       - db_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=${NAME_DB}
@@ -36,8 +37,19 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
     ports:
       - "5050:80"
+  
+  redis:
+    image: redis:7.2.4-bookworm
+    hostname: redis
+    volumes:
+      - redis:/data
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"
+    command: [redis-server, /usr/local/etc/redis/redis.conf]
 
 volumes:
   web-app:
   db_data:
   pgadmin4:
+  redis:

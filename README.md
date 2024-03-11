@@ -19,7 +19,9 @@ ___
 ![Static Badge](https://img.shields.io/badge/postgresql-15-blue)
 ![Static Badge](https://img.shields.io/badge/psycopg-3.1.18-blue)
 ![Static Badge](https://img.shields.io/badge/django_orm-4.2-blue)
+![Static Badge](https://img.shields.io/badge/redis-5.0-blue)
 ![Static Badge](https://img.shields.io/badge/docker-25.0-blue)
+![Static Badge](https://img.shields.io/badge/docker_compose-2.24-blue)
 ![Static Badge](https://img.shields.io/badge/coverage-7.4-blue)
 ![Static Badge](https://img.shields.io/badge/tests-unittest-blue)
 ![Static Badge](https://img.shields.io/badge/linting-pylint-blue)
@@ -28,8 +30,9 @@ ___
 ![Static Badge](https://img.shields.io/badge/CSS-3-blue)
 ![Static Badge](https://img.shields.io/badge/Bootstrap-5-blue)
 ![Static Badge](https://img.shields.io/badge/JS-ES6-blue)
-![Static Badge](https://img.shields.io/badge/python_dotenv-1.0-blue)
 ![Static Badge](https://img.shields.io/badge/Pillow-10.1-blue)
+![Static Badge](https://img.shields.io/badge/python_dotenv-1.0-blue)
+
 
 ____
 ### **Разработчики**

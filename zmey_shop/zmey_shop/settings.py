@@ -31,10 +31,10 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "*",
     ]
-# INTERNAL_IPS = [
-#     "localhost",
-#     "127.0.0.1"
-#     ]
+INTERNAL_IPS = [
+    "localhost",
+    "127.0.0.1"
+    ]
 
 
 LOGGING = {
@@ -47,30 +47,30 @@ LOGGING = {
             },
     },
     "handlers": {
-        "console": {
-            "class": "logging.StreamHandler",
-            "formatter": "verbose",
-        },
+        # "console": {
+        #     "class": "logging.StreamHandler",
+        #     "formatter": "verbose",
+        # },
         # "file": {
         #     "level": "WARNING",
         #     "class": "logging.FileHandler",
         #     "filename": "logging_project.log",
         #     "formatter": "verbose",
         # },
-        # "db_console": {
-        #     "class": "logging.StreamHandler",
-        # },
+        "db_console": {
+            "class": "logging.StreamHandler",
+        },
     },
     "loggers": {
-        "django": {
-            "handlers": ["console"],
-            "level": "INFO",
-            "propagate": True,
-        },
-        # "django.db.backends":{
-        #     'handlers': ['db_console'],
-        #     "level": 'DEBUG',
+        # "django": {
+        #     "handlers": ["console"],
+        #     "level": "INFO",
+        #     "propagate": True,
         # },
+        "django.db.backends":{
+            'handlers': ['db_console'],
+            "level": 'DEBUG',
+        },
     },
 }  
 
@@ -121,6 +121,18 @@ TEMPLATES = [
         },
     },
 ]
+
+# if start with docker-compose "LOCATION": "redis://redis:6379",
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379",
+        "OPTIONS": {
+            "db": "0",
+            "pool_class": "redis.BlockingConnectionPool",
+        },
+    }
+}
 
 WSGI_APPLICATION = 'zmey_shop.wsgi.application'
 
