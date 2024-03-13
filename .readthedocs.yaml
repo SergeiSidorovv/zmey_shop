@@ -6,7 +6,11 @@ build:
     python: "3.12"
 
 mkdocs:
+<<<<<<< HEAD
   configuration: mkdocs.yml
+=======
+  configuration: my-project/mkdocs.yml
+>>>>>>> c918f3e522ae87c2af967a0bee1cd19a1d15ca95
 
 python:
   install:
