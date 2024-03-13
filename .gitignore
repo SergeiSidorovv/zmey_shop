@@ -4,6 +4,7 @@
 *$py.class
 pylintrc.txt
 .vscode
+site/
 
 # C extensions
 *.so

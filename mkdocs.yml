@@ -1,0 +1,17 @@
+site_name: ZmeyShopDocs
+site_url: https://zmeyshop.com/
+
+nav:
+  - Home: index.md
+  - Start: start.md
+  - Test: test.md
+  - Admin: admin.md
+  
+theme:
+  name: mkdocs
+
+dev_addr:
+    127.0.0.1:8200
+
+site_author:
+  Sergei Sidorov
