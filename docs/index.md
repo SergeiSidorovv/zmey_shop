@@ -1,7 +1,7 @@
 # ZmeyShop
 
-[Запустить приложение]()
+[Запустить приложение](https://zmeyshop.readthedocs.io/ru/latest/start/)
 
-[Админ панель]()
+[Админ панель](https://zmeyshop.readthedocs.io/ru/latest/admin/)
 
-[Тесты]()
+[Тесты](https://zmeyshop.readthedocs.io/ru/latest/test/)
