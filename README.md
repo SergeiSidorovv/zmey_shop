@@ -26,13 +26,13 @@ ___
 ![Static Badge](https://img.shields.io/badge/tests-unittest-blue)
 ![Static Badge](https://img.shields.io/badge/linting-pylint-blue)
 ![Static Badge](https://img.shields.io/badge/logs-logging-blue)
+![Static Badge](https://img.shields.io/badge/mkdocs-1.5-blue)
 ![Static Badge](https://img.shields.io/badge/HTML-5-blue)
 ![Static Badge](https://img.shields.io/badge/CSS-3-blue)
 ![Static Badge](https://img.shields.io/badge/Bootstrap-5-blue)
 ![Static Badge](https://img.shields.io/badge/JS-ES6-blue)
 ![Static Badge](https://img.shields.io/badge/Pillow-10.1-blue)
 ![Static Badge](https://img.shields.io/badge/python_dotenv-1.0-blue)
-
 
 ____
 ### **Разработчики**
