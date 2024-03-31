@@ -39,7 +39,7 @@ urlpatterns = [
     path("favourite/", include("goods_favourite.urls", namespace="favourite")),
     path("users/", include("users.urls", namespace="users")),
     path("footer/", include("footer.urls", namespace="footer")),
-    path("__debug__/", include("debug_toolbar.urls")),
+    # path("__debug__/", include("debug_toolbar.urls")),
     path("captcha/", include("captcha.urls")),
 ]
 

@@ -25,16 +25,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("SECRET_KEY")
+SESSION_COOKIE_SECURE = True
+CSRF_COOLIE_SECURE = True
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    "*",
+    # "127.0.0.1",
+    "zmeyshop.pythonanywhere.com",
     ]
-INTERNAL_IPS = [
-    "localhost",
-    "127.0.0.1"
-    ]
+# INTERNAL_IPS = [
+#     "localhost",
+#     "127.0.0.1",
+#     ]
 
 
 LOGGING = {
@@ -86,13 +90,13 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'pictures.apps.PicturesConfig',
     'footer.apps.FooterConfig',
-    'debug_toolbar',
+    # 'debug_toolbar',
     'captcha',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -142,12 +146,15 @@ WSGI_APPLICATION = 'zmey_shop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'HOST': os.environ.get("DB_HOST"),
         'NAME': os.getenv('NAME_DB'),
         'USER': os.getenv('USER_DB'),
         'PASSWORD': os.getenv('PASSWORD_DB'),
-        'PORT': os.getenv('PORT'),
+        'OPTIONS' : {
+            'init_command': "SET NAMES 'utf8mb4'; SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+        },
     }
 }
 
@@ -190,6 +197,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+# STATIC_ROOT = BASE_DIR / "static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
