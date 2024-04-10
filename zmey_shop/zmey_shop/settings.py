@@ -46,7 +46,18 @@ LOGGING = {
             "style": "{",
             },
     },
+    "filters": {
+        "require_debug_false": {
+            "()": "django.utils.log.RequireDebugFalse",
+        },
+    },
     "handlers": {
+        # "mail_admins": {
+        #     "level": "WARNING",
+        #     "filters": ["require_debug_false"],
+        #     "formatter": "verbose",
+        #     "class": "django.utils.log.AdminEmailHandler",
+        # },
         # "console": {
         #     "class": "logging.StreamHandler",
         #     "formatter": "verbose",
@@ -63,16 +74,15 @@ LOGGING = {
     },
     "loggers": {
         # "django": {
-        #     "handlers": ["console"],
+        #     "handlers": ["console","mail_admins"],
         #     "level": "INFO",
-        #     "propagate": True,
         # },
-        "django.db.backends":{
-            'handlers': ['db_console'],
-            "level": 'DEBUG',
-        },
+        # "django.db.backends":{
+        #     'handlers': ['db_console'],
+        #     "level": 'DEBUG',
+        # },
     },
-}  
+}
 
 INSTALLED_APPS = [
     'django.contrib.admin',

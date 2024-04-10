@@ -1,12 +1,12 @@
-body {
+#container-form-user {
   font-family: Arial, sans-serif;
   font-size: 16px;
   color: #000;
-  background-color: #f8f8f8;
 }
 
-* {
+.form {
   box-sizing: border-box;
+  border: #000 solid 1px;
 }
 
 .container-form {
