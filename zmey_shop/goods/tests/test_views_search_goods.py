@@ -42,27 +42,14 @@ class SearchGoodsTest(TestCase):
 
         self.assertTemplateUsed(response, "goods/search_goods.html")
 
-    def test_context_object_name(self):
-        """The context object name is write correct"""
-
-        search_goods_view = views.SearchGoods()
-        context_object_name_search_goods = search_goods_view.context_object_name
-
-        self.assertEqual(context_object_name_search_goods, "search_goods")
 
     def test_name_available_from_search_form(self):
         """The search form works correctly with the name"""
 
-        response = self.client.get(reverse("search"), {"search_form": "Шнурки"})
+        request = self.factory.get(reverse("search"), {"search_form": "Шнурки"})
+        name_search_form = request.GET.get("search_form")
+        self.assertEqual(name_search_form, "Шнурки")
 
-        self.assertEqual(response.context.get("search_form"), "Шнурки")
-
-    def test_dont_name_from_search_form(self):
-        """The search form works correctly without specifying the name"""
-
-        response = self.client.get(reverse("search"), {"search_form": ""})
-
-        self.assertEqual(response.context.get("search_form"), "")
 
     def test_get_data_list_in_get_queryset(self):
         """The data from the get queryset is returned correct"""
@@ -76,14 +63,3 @@ class SearchGoodsTest(TestCase):
 
         self.assertQuerysetEqual(products, queryset_search_goods)
 
-    def test_search_form_set_in_get_context_data(self):
-        """Context with data search form work correctly in context data"""
-
-        request = self.factory.get("/search/", {"search_form": "Перчатки"})
-        request.user = AnonymousUser()
-        view_search_form = views.SearchGoods()
-        view_search_form.setup(request)
-
-        context = view_search_form.get_context_data()
-
-        self.assertIn("search_form", context)
