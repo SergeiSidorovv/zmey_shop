@@ -205,16 +205,15 @@ footer {
     text-align: center;
     justify-content: space-between;
     max-width: 1536px;
-    max-height: 250px;
     min-width: 300px;
     min-height: 60px;
 }
 
-.container-footer .list-unstyled li{
+.container-fluid .list-unstyled li{
     margin: 10px;
 }
 
-.container-footer .list-unstyled .footer-text {
+.container-fluid .list-unstyled .footer-text {
     list-style-type: none;
     text-decoration: none;
     color: black;

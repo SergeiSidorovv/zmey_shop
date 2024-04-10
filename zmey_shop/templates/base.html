@@ -126,42 +126,50 @@
     {% endif %}
     {% endblock paginator %}
     <footer>
-        <div class="container-footer">
-            <div class="row">
-                <div class="col-md">
-                    <h4>ZMEYSHOP</h4>
-                    <ul class="list-unstyled">
-                        <li><a class="footer-text" a href="{% url 'goods' %}">Главная</a></li>
-                        <li><a class="footer-text" a href="{% url 'footer:about' %}">О магазине</a></li>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>                          
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2">
+                        <div class="col-md">
+                            <h4>ZMEYSHOP</h4>
+                            <ul class="list-unstyled">
+                                <li><a class="footer-text" a href="{% url 'goods' %}">Главная</a></li>
+                                <li><a class="footer-text" a href="{% url 'footer:about' %}">О магазине</a></li>
+                            </ul>
+                        </div>
+                    </ul>
+                    <ul class="navbar-nav me-auto mb-2">
+                        {% if user.is_authenticated %}
+                        <div class="col-md">
+                            <ul class="list-unstyled">
+                                <h4>Личный кабинет</h4>
+                                    <li><a class="footer-text" href="{% url 'users:change'%}">Редактировать</a></li>
+                                    <li><a class="footer-text" href="{% url 'users:logout' %}">Выйти</a></li>
+                            </ul>
+                        </div>
+
+                        {% else %}
+                            <div class="col-md">
+                                <ul class="list-unstyled">
+                                    <h4>Личный кабинет</h4>
+                                    <li><a class="footer-text" href="{% url 'users:login' %}">войти</a></li>
+                                    <li><a class="footer-text" href="{% url 'users:registration'%}">Регистрация</a></li>
+                                </ul>
+                            </div> 
+                        {% endif %}
+                        </ul>
+                        <ul class="navbar-nav me-auto mb-2">
+                            <div class="emblem">
+                                <li><a class="footer-emblem-telegram" href="https://t.me/ollzmey" target="_blank"><i class="fa-brands fa-telegram"></i></a></li>
+                            </div>  
+                        </ul>
                     </ul>
                 </div>
-                <div class="col-md">
-                    <h4>Контакты</h4>
-                    <ul class="list-unstyled">      
-                        <div class="emblem">
-                            <li><a class="footer-emblem-telegram" href="https://t.me/ollzmey" target="_blank"><i class="fa-brands fa-telegram"></i></a></li>
-                        </div>  
-                    </ul>
-                </div>
-                {% if user.is_authenticated %}
-                    <div class="col-md">
-                        <ul class="list-unstyled">
-                            <h4>Личный кабинет</h4>
-                                <li><a class="footer-text" href="{% url 'users:change'%}">Редактировать</a></li>
-                                <li><a class="footer-text" href="{% url 'users:logout' %}">Выйти</a></li>
-                        </ul>
-                    </div>
-                {% else %}
-                    <div class="col-md">
-                        <ul class="list-unstyled">
-                            <h4>Личный кабинет</h4>
-                            <li><a class="footer-text" href="{% url 'users:login' %}">войти</a></li>
-                            <li><a class="footer-text" href="{% url 'users:registration'%}">Регистрация</a></li>
-                        </ul>
-                    </div>  
-                {% endif %}
             </div>
-        </div>
+        </nav>
     </footer>
 </body>
 
