@@ -40,9 +40,9 @@ class ChoiceGoods(BaseDataMixin, GetFavouriteGoodsMixin, ListView):
         Returns the list of items Goods model with selected type product from database
         for this view.
         """
-
+        category_name = self.kwargs["type_product"]
         choice_goods = goods_services.get_all_goods_for_category(
-            self.kwargs["type_product"]
+            category=category_name
         )
         return choice_goods
 
@@ -61,12 +61,16 @@ class Product(GetFavouriteGoodsMixin, ListView):
         """
 
         context = super().get_context_data(**kwargs)
-        context["product"] = goods_services.get_product(self.kwargs["product_slug"])
+        slug_product = self.kwargs["product_slug"]
+
+        context["product"] = goods_services.get_product(slug=slug_product)
         if not context["product"]:
             logger.info("Такокго товара нет, страница не найдена")
             raise Http404()
+
+        product_id = context["product"].get().id
         context["pictures"] = picture_services.get_pictures_from_goods_id(
-            context["product"].get().id
+            product_id=product_id
         )
         return context
 
@@ -84,22 +88,14 @@ class SearchGoods(BaseDataMixin, GetFavouriteGoodsMixin, ListView):
         Returns the list of items Goods model with selected name product from database
         for this view.
         """
-        if not self.request.GET:
+        check_search_name = self.request.GET
+        if not check_search_name:
             empty_name = ""
             search_goods = goods_services.get_search_goods(empty_name)
             return search_goods
 
+        search_name = self.request.GET.get("search_form")
         search_goods = goods_services.get_search_goods(
-            self.request.GET.get("search_form")
+            name_product=search_name
         )
         return search_goods
-
-    def get_context_data(self, **kwargs) -> dict[str, Any]:
-        """
-        Returns the dict of item with selected name product from search form
-        """
-
-        self.object_list = self.get_queryset()
-        context = super().get_context_data(**kwargs)
-        context["search_form"] = self.request.GET.get("search_form")
-        return context
