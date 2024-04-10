@@ -19,7 +19,8 @@ class FavouriteGoods(LoginRequiredMixin, BaseDataMixin, ListView):
     def get_queryset(self):
         """Returns the list of items Favourite model from database for this view."""
 
-        favourite_goods = favourite_services.get_favourite_goods(self.request.user.id)
+        user_id = self.request.user.id
+        favourite_goods = favourite_services.get_favourite_goods(user_id=user_id)
         return favourite_goods
 
 
@@ -32,11 +33,13 @@ class ManageFavouriteGoods(View):
         """
 
         if request.user == AnonymousUser():
-            return redirect(request.META.get("HTTP_REFERER"))
+            previous_page = request.META.get("HTTP_REFERER")
+            return redirect(previous_page)
 
-        product = favourite_services.get_favourite_product(request.user.id, id_product)
+        user_id = request.user.id
+        product = favourite_services.get_favourite_product(user_id=user_id, id_product=id_product)
         if not product:
-            favourite_services.create_product_in_favourite(request.user.id, id_product)
-            return redirect(request.META.get("HTTP_REFERER"))
+            favourite_services.create_product_in_favourite(user_id=user_id,id_product=id_product)
+            return redirect(previous_page)
         favourite_services.delete_favourite_product(product)
-        return redirect(request.META.get("HTTP_REFERER"))
+        return redirect(previous_page)

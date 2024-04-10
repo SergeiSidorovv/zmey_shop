@@ -12,8 +12,9 @@ class GetFavouriteGoodsMixin:
         """
 
         context = super().get_context_data(**kwargs)
+        user_id = self.request.user.id
         context["favourite_goods"] = favourite_services.get_favourite_goods_id(
-            self.request.user.id
+            user_id=user_id
         )
 
         return context
